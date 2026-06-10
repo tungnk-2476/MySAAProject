@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p app/src/main/res/drawable-xxhdpi)",
+      "Bash(cp plans/20260609-momorph-login-screen/data/icons/ic_google.raw plans/20260609-momorph-login-screen/data/icons/ic_google.svg)",
+      "Bash(echo \"=== svg content ===\")",
+      "Bash(cat plans/20260609-momorph-login-screen/data/icons/ic_google.svg)",
+      "Bash(echo \"=== convert ===\")",
+      "Bash(curl -sS \"https://api.github.com/repos/google/fonts/contents/ofl/montserrat\")",
+      "Bash(python3 -c \"import sys,json; [print\\(x['name'], x['size']\\) for x in json.load\\(sys.stdin\\) if isinstance\\(x,dict\\)]\")",
+      "Bash(command -v fonttools)",
+      "Bash(fonttools --version)",
+      "Bash(python3 -c \"import fontTools; print\\('fontTools', fontTools.version\\)\")",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c \"import fontTools; print\\('fontTools OK', fontTools.version\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(./gradlew :app:assembleDebug --console=plain)",
+      "Bash([ -x \"$P/bin/java\" ])",
+      "Bash('/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java' -version)",
+      "Bash(/usr/libexec/java_home -V)",
+      "Bash(export JAVA_HOME=\"/Applications/Android Studio.app/Contents/jbr/Contents/Home\")",
+      "Bash(git check-ignore *)"
+    ]
+  }
+}
