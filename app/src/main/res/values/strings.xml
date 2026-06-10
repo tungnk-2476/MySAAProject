@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MySAAProject</string>
+
+    <!-- Login screen (default / English fallback) -->
+    <string name="login_description">Start your journey with SAA 2025. Log in to explore!</string>
+    <string name="login_google_button">LOGIN With Google</string>
+    <string name="login_copyright">Copyright belongs to Sun* © 2025</string>
+    <string name="login_error_auth">Login failed. Please try again.</string>
+
+    <!-- Home screen -->
+    <string name="home_welcome">Welcome to SAA 2025</string>
+    <string name="home_subtitle">You are logged in.</string>
+    <string name="home_logout">Log out</string>
 </resources>

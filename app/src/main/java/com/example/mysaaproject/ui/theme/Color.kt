@@ -9,3 +9,9 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+// SAA 2025 brand palette (from MoMorph [iOS] Login design)
+val SaaBackground = Color(0xFF00101A) // frame background rgba(0,16,26,1)
+val SaaButton = Color(0xFFFFEA9E)     // "LOGIN With Google" button rgba(255,234,158,1)
+val SaaOnButton = Color(0xFF00101A)   // button label color
+val SaaOnDark = Color(0xFFFFFFFF)     // text on dark background

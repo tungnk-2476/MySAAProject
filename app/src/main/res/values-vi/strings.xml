@@ -1,0 +1,10 @@
+<resources>
+    <string name="login_description">Bắt đầu hành trình của bạn cùng SAA 2025.\nĐăng nhập để khám phá!</string>
+    <string name="login_google_button">LOGIN With Google</string>
+    <string name="login_copyright">Bản quyền thuộc về Sun* © 2025</string>
+    <string name="login_error_auth">Đăng nhập thất bại. Vui lòng thử lại.</string>
+
+    <string name="home_welcome">Chào mừng đến với SAA 2025</string>
+    <string name="home_subtitle">Bạn đã đăng nhập.</string>
+    <string name="home_logout">Đăng xuất</string>
+</resources>

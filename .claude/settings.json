@@ -19,7 +19,42 @@
       "Bash('/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java' -version)",
       "Bash(/usr/libexec/java_home -V)",
       "Bash(export JAVA_HOME=\"/Applications/Android Studio.app/Contents/jbr/Contents/Home\")",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "mcp__momorph__get_frame",
+      "mcp__momorph__download_specs",
+      "mcp__momorph__download_test_cases",
+      "Bash(mkdir -p /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/plans/260610-1623-ios-login-implementation)",
+      "mcp__momorph__get_frame_node_tree",
+      "mcp__momorph__list_media_items",
+      "mcp__momorph__get_node",
+      "mcp__momorph__get_media_file",
+      "Bash(git ls-tree *)",
+      "Bash(git fsck *)",
+      "Read(//tmp/saa-assets/**)",
+      "Read(//private/tmp/saa-assets/**)",
+      "Bash(python3 -)",
+      "Bash(cp /tmp/saa-assets/png_48x44_33b684a2.png    app/src/main/res/drawable/logo_sun_award.png)",
+      "Bash(cp /tmp/saa-assets/png_247x109_7536135e.png  app/src/main/res/drawable/logo_root_further.png)",
+      "Bash(cp /tmp/saa-assets/png_72x72_5cfc1c03.png    app/src/main/res/drawable/ic_google.png)",
+      "Bash(cp /tmp/saa-assets/png_375x723_78c6aa0f.png  app/src/main/res/drawable-nodpi/keyvisual_bg.png)",
+      "Bash(cp /tmp/saa-assets/font_e1c6c1d1.ttf app/src/main/res/font/montserrat_light.ttf)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(git add *)",
+      "mcp__momorph__get_node_context",
+      "Bash(sips -g pixelWidth -g pixelHeight app/src/main/res/drawable-nodpi/keyvisual_bg.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight app/src/main/res/drawable/ic_google.png)",
+      "mcp__momorph__list_file_localizations",
+      "Bash(grep -vE \":\\\\s*[0-9]+:\\\\s*$\")",
+      "mcp__momorph__get_figma_image",
+      "mcp__momorph__get_design_item_image",
+      "Bash(./gradlew :app:testDebugUnitTest --console=plain)",
+      "Bash(./gradlew :app:installDebug --console=plain)",
+      "Bash(/Users/nguyen.khac.tung/Library/Android/sdk/platform-tools/adb shell *)",
+      "Bash(/Users/nguyen.khac.tung/Library/Android/sdk/platform-tools/adb exec-out *)"
+    ],
+    "additionalDirectories": [
+      "/Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/plans"
     ]
   }
 }
