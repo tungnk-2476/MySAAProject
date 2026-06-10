@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.mysaaproject.ui.home.HomeScreen
+import com.example.mysaaproject.ui.home.HomeRoute
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.login.LoginRoute
 
@@ -44,7 +44,9 @@ fun AppNavHost(
             )
         }
         composable(Routes.HOME) {
-            HomeScreen(
+            HomeRoute(
+                language = language,
+                onLanguageSelected = onLanguageSelected,
                 onLogout = {
                     onLogout()
                     navController.navigate(Routes.LOGIN) {

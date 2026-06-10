@@ -11,4 +11,37 @@
     <string name="home_welcome">Welcome to SAA 2025</string>
     <string name="home_subtitle">You are logged in.</string>
     <string name="home_logout">Log out</string>
+
+    <!-- Home dashboard -->
+    <string name="home_coming_soon">Coming soon</string>
+    <string name="home_countdown_days">DAYS</string>
+    <string name="home_countdown_hours">HOURS</string>
+    <string name="home_countdown_minutes">MINUTES</string>
+    <string name="home_event_time_label">Time:</string>
+    <string name="home_event_date">26/12/2025</string>
+    <string name="home_event_venue_label">Venue:</string>
+    <string name="home_event_venue">Âu Cơ Art Center</string>
+    <string name="home_event_livestream">Live broadcast on Group Facebook Sun* Family</string>
+    <string name="home_about_award">ABOUT AWARD</string>
+    <string name="home_about_kudos">ABOUT KUDOS</string>
+    <string name="home_theme_paragraph">Root Further is not merely a name — it is the spirit every Sunner aspires to: always looking deeper in every context and never ceasing to create, expanding oneself to overcome self-imposed limits. Borrowing imagery from color theory, from just three primary colors — red, yellow and blue — the boundless creativity of each individual can produce an almost infinite number of shades, each representing breakthrough and limitless creativity.</string>
+    <string name="home_awards_eyebrow">Sun* Annual Awards 2025</string>
+    <string name="home_awards_title">Award system</string>
+    <string name="home_award_details">Details</string>
+    <string name="home_awards_empty">No awards available yet.</string>
+    <string name="home_awards_error">Couldn\'t load awards.</string>
+    <string name="home_retry">Retry</string>
+    <string name="home_kudos_eyebrow">Recognition movement</string>
+    <string name="home_kudos_title">Sun* Kudos</string>
+    <string name="home_kudos_badge">NEW IN SAA 2025</string>
+    <string name="home_kudos_description">A movement to recognize and thank colleagues — held for the first time for all Sunners. Launching in November 2025, it encourages Sun* people to share recognition and thanks with colleagues on the system announced by the organizers. This will be material for the Heads Council to reference when selecting award recipients.</string>
+    <string name="home_kudos_details">Details</string>
+    <string name="home_nav_saa">SAA 2025</string>
+    <string name="home_nav_awards">Awards</string>
+    <string name="home_nav_kudos">Kudos</string>
+    <string name="home_nav_profile">Profile</string>
+    <string name="home_cd_search">Search</string>
+    <string name="home_cd_notifications">Notifications</string>
+    <string name="home_cd_write_kudos">Write Kudos</string>
+    <string name="home_cd_kudos_shortcut">Sun* Kudos</string>
 </resources>

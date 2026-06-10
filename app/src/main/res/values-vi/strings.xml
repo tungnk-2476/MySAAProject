@@ -7,4 +7,37 @@
     <string name="home_welcome">Chào mừng đến với SAA 2025</string>
     <string name="home_subtitle">Bạn đã đăng nhập.</string>
     <string name="home_logout">Đăng xuất</string>
+
+    <!-- Home dashboard -->
+    <string name="home_coming_soon">Coming soon</string>
+    <string name="home_countdown_days">DAYS</string>
+    <string name="home_countdown_hours">HOURS</string>
+    <string name="home_countdown_minutes">MINUTES</string>
+    <string name="home_event_time_label">Thời gian:</string>
+    <string name="home_event_date">26/12/2025</string>
+    <string name="home_event_venue_label">Địa điểm:</string>
+    <string name="home_event_venue">Âu Cơ Art Center</string>
+    <string name="home_event_livestream">Tường thuật trực tiếp tại Group Facebook Sun* Family</string>
+    <string name="home_about_award">ABOUT AWARD</string>
+    <string name="home_about_kudos">ABOUT KUDOS</string>
+    <string name="home_theme_paragraph">Không đơn thuần là một cái tên, \"Root Further\" chính là tinh thần mà mỗi người Sun* đang hướng tới: luôn nhìn nhận sâu sắc trong mọi bối cảnh và không ngừng sáng tạo, mở rộng bản thân để vượt qua những giới hạn mà chính mình đã từng đặt ra. Mượn hình ảnh ẩn dụ của lý thuyết phối màu, chỉ từ ba màu cơ bản: đỏ, vàng và lam, sức sáng tạo vô tận của mỗi cá nhân có thể tạo ra số lượng màu sắc gần như vô hạn, với mỗi gam màu đều đại diện cho sự bứt phá và sáng tạo không giới hạn.</string>
+    <string name="home_awards_eyebrow">Sun* Annual Awards 2025</string>
+    <string name="home_awards_title">Hệ thống giải thưởng</string>
+    <string name="home_award_details">Chi tiết</string>
+    <string name="home_awards_empty">Chưa có giải thưởng nào.</string>
+    <string name="home_awards_error">Không thể tải giải thưởng.</string>
+    <string name="home_retry">Thử lại</string>
+    <string name="home_kudos_eyebrow">Phong trào ghi nhận</string>
+    <string name="home_kudos_title">Sun* Kudos</string>
+    <string name="home_kudos_badge">ĐIỂM MỚI CỦA SAA 2025</string>
+    <string name="home_kudos_description">Hoạt động ghi nhận và cảm ơn đồng nghiệp - lần đầu tiên được diễn ra dành cho tất cả Sunner. Hoạt động sẽ được triển khai vào tháng 11/2025, khuyến khích người Sun* chia sẻ những lời ghi nhận, cảm ơn đồng nghiệp trên hệ thống do BTC công bố. Đây sẽ là chất liệu để Hội đồng Heads tham khảo trong quá trình lựa chọn người đạt giải.</string>
+    <string name="home_kudos_details">Chi tiết</string>
+    <string name="home_nav_saa">SAA 2025</string>
+    <string name="home_nav_awards">Awards</string>
+    <string name="home_nav_kudos">Kudos</string>
+    <string name="home_nav_profile">Profile</string>
+    <string name="home_cd_search">Tìm kiếm</string>
+    <string name="home_cd_notifications">Thông báo</string>
+    <string name="home_cd_write_kudos">Viết Kudos</string>
+    <string name="home_cd_kudos_shortcut">Sun* Kudos</string>
 </resources>
