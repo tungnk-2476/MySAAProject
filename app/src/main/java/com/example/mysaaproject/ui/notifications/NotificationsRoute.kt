@@ -13,6 +13,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun NotificationsRoute(
     onBack: () -> Unit,
+    onOpenCommunityStandards: () -> Unit,
     viewModel: NotificationsViewModel = viewModel(),
 ) {
     val items by viewModel.items.collectAsStateWithLifecycle()
@@ -25,6 +26,6 @@ fun NotificationsRoute(
             // TODO: navigate to the per-type detail screen (kudo, secret box, profile, admin review…)
         },
         onMarkAllRead = viewModel::markAllRead,
-        onCommunityStandards = { /* TODO: navigate to Community Standards screen */ },
+        onCommunityStandards = onOpenCommunityStandards,
     )
 }

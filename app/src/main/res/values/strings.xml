@@ -49,5 +49,28 @@
     <string name="notif_title">Notifications</string>
     <string name="notif_mark_all_read">Mark all as read</string>
     <string name="notif_community_standards">Community standards</string>
-    <string name="notif_cd_back">Back</string>
+    <string name="cd_back">Back</string>
+
+    <!-- Community Standards screen -->
+    <string name="cs_title">Community standards</string>
+    <string name="cs_community_title">Community standards</string>
+    <string name="cs_community_intro">The Community Standards are built to ensure a civil, safe and positive environment for everyone taking part in the Sun* Kudos recognition and thank-you movement.</string>
+    <string name="cs_community_warning">Content found to match any of the violation criteria below will be labelled Spam and automatically hidden by the system.</string>
+    <string-array name="cs_criteria">
+        <item>Using profane, abusive, offensive or defamatory language.</item>
+        <item>Referring to political, religious or gender-discrimination topics.</item>
+        <item>Containing specific figures (revenue, contracts, KPIs, clients, project codes, account numbers…).</item>
+        <item>Mentioning partner, client or external organization names.</item>
+        <item>Containing personal information (email, phone number, address, family details).</item>
+        <item>Sending 3+ messages with similar content in a short time.</item>
+        <item>Kudos content too short (under 30 characters) with no context (\"Thanks a lot\", \"Thanks\", \"Good job!\").</item>
+        <item>Sending to too many people/groups in a short time (under 3s per message).</item>
+        <item>Spam wording (only characters such as \".\", \",\", \"...\", or characters with no content).</item>
+        <item>Abnormal spike in \"hearts\" (relative to average user behaviour).</item>
+    </string-array>
+    <string name="cs_security_title">Security standards</string>
+    <string name="cs_security_desc">Sunner commits to protecting information. Every member is responsible for keeping shared content confidential on the system.</string>
+    <string name="cs_security_info_privacy">Information security: All information Sunners share is kept confidential on the system.</string>
+    <string name="cs_security_info_scope">Sharing scope: All HR and project information on the system is confidential. Please share only within Sun*.</string>
+    <string name="cs_security_contact">Support: For any questions, please contact the SAA organizing representative on Slack — duong.thi.thuy.an.</string>
 </resources>

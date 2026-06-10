@@ -9,11 +9,13 @@ import com.example.mysaaproject.ui.home.HomeRoute
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.login.LoginRoute
 import com.example.mysaaproject.ui.notifications.NotificationsRoute
+import com.example.mysaaproject.ui.standards.CommunityStandardsScreen
 
 object Routes {
     const val LOGIN = "login"
     const val HOME = "home"
     const val NOTIFICATIONS = "notifications"
+    const val COMMUNITY_STANDARDS = "community_standards"
 }
 
 /**
@@ -61,7 +63,15 @@ fun AppNavHost(
             )
         }
         composable(Routes.NOTIFICATIONS) {
-            NotificationsRoute(onBack = { navController.popBackStack() })
+            NotificationsRoute(
+                onBack = { navController.popBackStack() },
+                onOpenCommunityStandards = {
+                    navController.navigate(Routes.COMMUNITY_STANDARDS) { launchSingleTop = true }
+                },
+            )
+        }
+        composable(Routes.COMMUNITY_STANDARDS) {
+            CommunityStandardsScreen(onBack = { navController.popBackStack() })
         }
     }
 }

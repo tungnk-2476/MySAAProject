@@ -54,7 +54,8 @@
       "Bash(/Users/nguyen.khac.tung/Library/Android/sdk/platform-tools/adb exec-out *)",
       "Bash(./gradlew :app:compileDebugKotlin --console=plain)",
       "Bash(./gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain)",
-      "Bash(ADB=\"$HOME/Library/Android/sdk/platform-tools/adb\" *)"
+      "Bash(ADB=\"$HOME/Library/Android/sdk/platform-tools/adb\" *)",
+      "Bash(identify /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/app/src/main/res/drawable/logo_root_further.png)"
     ],
     "additionalDirectories": [
       "/Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/plans",

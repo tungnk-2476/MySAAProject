@@ -101,7 +101,7 @@ private fun TopBar(onBack: () -> Unit) {
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_arrow_back),
-                contentDescription = appString(R.string.notif_cd_back),
+                contentDescription = appString(R.string.cd_back),
                 tint = SaaOnDark,
                 modifier = Modifier.size(24.dp),
             )

@@ -39,3 +39,8 @@ fun ProvideAppLanguage(language: AppLanguage, content: @Composable () -> Unit) {
 /** Localized string lookup that recomposes when the app language changes. */
 @Composable
 fun appString(resId: Int): String = LocalLocalizedContext.current.getString(resId)
+
+/** Localized string-array lookup that recomposes when the app language changes. */
+@Composable
+fun appStringArray(resId: Int): List<String> =
+    LocalLocalizedContext.current.resources.getStringArray(resId).toList()
