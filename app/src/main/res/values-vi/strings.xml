@@ -40,4 +40,10 @@
     <string name="home_cd_notifications">Thông báo</string>
     <string name="home_cd_write_kudos">Viết Kudos</string>
     <string name="home_cd_kudos_shortcut">Sun* Kudos</string>
+
+    <!-- Notifications screen -->
+    <string name="notif_title">Thông báo</string>
+    <string name="notif_mark_all_read">Đánh dấu đọc tất cả</string>
+    <string name="notif_community_standards">Tiêu chuẩn cộng đồng</string>
+    <string name="notif_cd_back">Quay lại</string>
 </resources>

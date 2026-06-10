@@ -16,10 +16,12 @@ fun HomeRoute(
     language: AppLanguage,
     onLanguageSelected: (AppLanguage) -> Unit,
     onLogout: () -> Unit,
+    onOpenNotifications: () -> Unit,
     viewModel: HomeViewModel = viewModel(),
 ) {
     val countdown by viewModel.countdown.collectAsStateWithLifecycle()
     val awardsState by viewModel.awardsState.collectAsStateWithLifecycle()
+    val unreadCount by viewModel.unreadCount.collectAsStateWithLifecycle()
 
     HomeScreen(
         language = language,
@@ -27,9 +29,9 @@ fun HomeRoute(
         countdown = countdown,
         awardsState = awardsState,
         isKudosAvailable = viewModel.isKudosAvailable,
-        unreadCount = viewModel.unreadNotifications,
+        unreadCount = unreadCount,
         onSearch = { /* TODO: navigate to Search screen */ },
-        onNotifications = { /* TODO: open Notifications panel */ },
+        onNotifications = onOpenNotifications,
         onAboutAward = { /* TODO: navigate to Awards overview */ },
         onAboutKudos = { /* TODO: navigate to Kudos overview */ },
         onAwardDetails = { /* TODO: navigate to Award detail */ },

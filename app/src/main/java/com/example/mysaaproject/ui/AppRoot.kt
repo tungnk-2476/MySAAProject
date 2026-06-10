@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
+import com.example.mysaaproject.data.notifications.NotificationsRepository
 import com.example.mysaaproject.data.session.SessionRepository
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.locale.ProvideAppLanguage
@@ -44,7 +45,11 @@ fun AppRoot() {
                 startDestination = if (isLoggedIn == true) Routes.HOME else Routes.LOGIN,
                 language = language,
                 onLanguageSelected = { language = it },
-                onLogout = { scope.launch { sessionRepository.clearSession() } },
+                onLogout = {
+                    scope.launch { sessionRepository.clearSession() }
+                    // Clear shared notification read-state so a re-login starts fresh.
+                    NotificationsRepository.reset()
+                },
                 modifier = Modifier.fillMaxSize().background(SaaBackground),
             )
         }

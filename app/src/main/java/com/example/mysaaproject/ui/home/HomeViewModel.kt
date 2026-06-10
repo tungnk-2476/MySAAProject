@@ -4,11 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mysaaproject.data.awards.Award
 import com.example.mysaaproject.data.awards.AwardsRepository
+import com.example.mysaaproject.data.notifications.NotificationsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.util.Calendar
@@ -43,9 +45,13 @@ class HomeViewModel : ViewModel() {
     private val _awardsState = MutableStateFlow<AwardsState>(AwardsState.Loading)
     val awardsState: StateFlow<AwardsState> = _awardsState.asStateFlow()
 
-    /** Mock flags — see clarifications: Kudos shown, badge visible. */
+    /** Mock flag — see clarifications: Kudos section shown. */
     val isKudosAvailable: Boolean = true
-    val unreadNotifications: Int = 3
+
+    /** Unread notification count, derived from the shared repository so the bell badge stays live. */
+    val unreadCount: StateFlow<Int> = NotificationsRepository.items
+        .map { items -> items.count { !it.isRead } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000L), 0)
 
     /** Live countdown, recomputed every second toward [eventEpochMillis]. */
     val countdown: StateFlow<Countdown> =

@@ -8,10 +8,12 @@ import androidx.navigation.compose.composable
 import com.example.mysaaproject.ui.home.HomeRoute
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.login.LoginRoute
+import com.example.mysaaproject.ui.notifications.NotificationsRoute
 
 object Routes {
     const val LOGIN = "login"
     const val HOME = "home"
+    const val NOTIFICATIONS = "notifications"
 }
 
 /**
@@ -53,7 +55,13 @@ fun AppNavHost(
                         popUpTo(Routes.HOME) { inclusive = true }
                     }
                 },
+                onOpenNotifications = {
+                    navController.navigate(Routes.NOTIFICATIONS) { launchSingleTop = true }
+                },
             )
+        }
+        composable(Routes.NOTIFICATIONS) {
+            NotificationsRoute(onBack = { navController.popBackStack() })
         }
     }
 }

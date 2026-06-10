@@ -20,3 +20,5 @@ val SaaInactiveTab = Color(0x99FFFFFF) // bottom-nav inactive tab (reduced-opaci
 val SaaCardSurface = Color(0xFF0A2231) // award card / banner surface on dark bg
 val SaaNavSurface = Color(0xFF021019)  // bottom navigation bar surface
 val SaaBadge = Color(0xFFFF3B30)        // notification unread badge dot
+val SaaDivider = Color(0xFF2E3940)      // list row divider (notifications)
+val SaaUnreadDot = Color(0xFFD4271D)    // notification row unread indicator
