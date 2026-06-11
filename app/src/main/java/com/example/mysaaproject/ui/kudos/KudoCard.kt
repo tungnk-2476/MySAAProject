@@ -4,8 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -52,6 +54,8 @@ fun KudoCard(
     onReceiver: () -> Unit,
     modifier: Modifier = Modifier,
     contentMaxLines: Int = 3,
+    centerTitle: Boolean = false,
+    imageCount: Int = 0,
 ) {
     Column(
         modifier = modifier
@@ -75,7 +79,15 @@ fun KudoCard(
         HorizontalDivider(color = InkColor.copy(alpha = 0.12f))
 
         Text(kudo.time, color = MutedInk, fontFamily = Montserrat, fontSize = 10.sp)
-        Text(kudo.title, color = InkColor, fontFamily = Montserrat, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+        Text(
+            text = kudo.title,
+            color = InkColor,
+            fontFamily = Montserrat,
+            fontWeight = FontWeight.Bold,
+            fontSize = 14.sp,
+            textAlign = if (centerTitle) TextAlign.Center else TextAlign.Start,
+            modifier = if (centerTitle) Modifier.fillMaxWidth() else Modifier,
+        )
         Text(
             text = kudo.content,
             color = InkColor,
@@ -83,8 +95,11 @@ fun KudoCard(
             fontSize = 12.sp,
             lineHeight = 16.sp,
             maxLines = contentMaxLines,
-            overflow = TextOverflow.Ellipsis,
+            overflow = if (contentMaxLines == Int.MAX_VALUE) TextOverflow.Clip else TextOverflow.Ellipsis,
         )
+        if (imageCount > 0) {
+            ImageStrip(imageCount)
+        }
         Text(
             text = kudo.hashtags.joinToString(" "),
             color = HashtagColor,
@@ -138,6 +153,22 @@ private fun HeroBadgeText(label: String) {
             .background(SaaButton)
             .padding(horizontal = 6.dp, vertical = 2.dp),
     )
+}
+
+/** Horizontal strip of attached-image placeholders (View Kudo detail). Tiles are evenly sized to the row. */
+@Composable
+private fun ImageStrip(count: Int) {
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        repeat(count) {
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(1f)
+                    .clip(RoundedCornerShape(6.dp))
+                    .background(InkColor.copy(alpha = 0.18f)),
+            )
+        }
+    }
 }
 
 @Composable

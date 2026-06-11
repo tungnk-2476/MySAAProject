@@ -90,4 +90,15 @@ class KudosViewModelTest {
         assertEquals(target.hearts + 1, liked.hearts)
         assertEquals(seed.drop(1), result.drop(1))
     }
+
+    @Test
+    fun findById_resolvesAcrossListsAndReturnsNullForUnknown() {
+        val target = KudosRepository.allKudos.last()
+        assertEquals(target, KudosRepository.findById(target.id))
+        assertEquals(
+            KudosRepository.highlightKudos.first(),
+            KudosRepository.findById(KudosRepository.highlightKudos.first().id),
+        )
+        assertEquals(null, KudosRepository.findById("does-not-exist"))
+    }
 }

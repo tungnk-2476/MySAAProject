@@ -76,11 +76,13 @@ class KudosViewModel : ViewModel() {
         /** 1000 → "1.000" (dot thousands separator, matching the design). */
         fun formatHearts(value: Int): String = "%,d".format(value).replace(",", ".")
 
+        /** Flip `liked` and adjust hearts by one for a single kudo (pure — the one source of truth). */
+        fun applyLikeToggle(kudo: Kudo): Kudo =
+            kudo.copy(liked = !kudo.liked, hearts = kudo.hearts + if (kudo.liked) -1 else 1)
+
         /** Pure like-toggle over a kudo list (unit-testable): flips `liked` and ±1 heart for [id]. */
-        fun toggleLikeIn(list: List<Kudo>, id: String): List<Kudo> = list.map { k ->
-            if (k.id != id) k
-            else k.copy(liked = !k.liked, hearts = k.hearts + if (k.liked) -1 else 1)
-        }
+        fun toggleLikeIn(list: List<Kudo>, id: String): List<Kudo> =
+            list.map { if (it.id != id) it else applyLikeToggle(it) }
 
         /** Pure highlight filter (unit-testable): keeps kudos matching the active dept AND hashtag (null = any). */
         fun filterKudos(list: List<Kudo>, department: String?, hashtag: String?): List<Kudo> =

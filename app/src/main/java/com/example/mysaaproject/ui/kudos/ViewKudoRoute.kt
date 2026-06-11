@@ -6,27 +6,25 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 /**
- * Connects [AllKudosViewModel] to [AllKudosScreen]. Only the local heart like-toggle is wired;
- * copy-link, detail and profile actions are no-op TODO (out of scope). Navigation comes from the host.
+ * Connects [ViewKudoViewModel] to [ViewKudoScreen]. Only the local heart like-toggle is wired;
+ * copy-link and profile actions are no-op TODO (out of scope). Navigation comes from the host.
  */
 @Composable
-fun AllKudosRoute(
+fun ViewKudoRoute(
     onBack: () -> Unit,
     onSaaTab: () -> Unit,
     onKudosTab: () -> Unit,
     onAwardsTab: () -> Unit,
     onProfileTab: () -> Unit,
-    onOpenKudo: (String) -> Unit,
-    viewModel: AllKudosViewModel = viewModel(),
+    viewModel: ViewKudoViewModel = viewModel(),
 ) {
-    val kudos by viewModel.kudos.collectAsStateWithLifecycle()
+    val kudo by viewModel.kudo.collectAsStateWithLifecycle()
 
-    AllKudosScreen(
-        kudos = kudos,
+    ViewKudoScreen(
+        kudo = kudo,
         onBack = onBack,
-        onLike = { viewModel.toggleLike(it.id) },
+        onLike = { viewModel.toggleLike() },
         onCopyLink = { /* TODO: copy link + toast */ },
-        onDetails = { onOpenKudo(it.id) },
         onSender = { /* TODO: navigate to sender profile */ },
         onReceiver = { /* TODO: navigate to receiver profile */ },
         onSaaTab = onSaaTab,

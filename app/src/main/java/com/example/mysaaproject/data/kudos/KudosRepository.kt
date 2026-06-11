@@ -18,6 +18,10 @@ object KudosRepository {
     /** Full Kudos feed shown on the dedicated "All Kudos" screen. */
     val allKudos: List<Kudo> = List(8) { i -> sampleKudo("a$i", i) }
 
+    /** Look up a single kudo by id across every mock list (for the View Kudo detail screen). */
+    fun findById(id: String): Kudo? =
+        (highlightKudos + feedKudos + allKudos).firstOrNull { it.id == id }
+
     val stats = KudosStats(
         received = 25,
         sent = 25,
@@ -61,6 +65,7 @@ object KudosRepository {
             hearts = 1000 + index,
             liked = false,
             department = departments[index % departments.size],
+            imageCount = 5,
         )
     }
 }

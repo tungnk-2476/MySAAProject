@@ -23,6 +23,8 @@ data class Kudo(
     /** Department the kudo belongs to (used by the Highlight "Phòng ban" filter). */
     val department: String,
     val liked: Boolean = false,
+    /** Number of attached images (rendered as placeholder tiles on the View Kudo detail screen). */
+    val imageCount: Int = 0,
 )
 
 /** Personal Kudos statistics block (All Kudos section). */
