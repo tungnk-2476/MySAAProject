@@ -11,6 +11,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,18 +35,28 @@ private val CONTENT_INSET = 20.dp
 @Composable
 fun HighlightSection(
     kudos: List<Kudo>,
+    hashtagOptions: List<String>,
+    departments: List<String>,
+    selectedHashtag: String?,
+    selectedDepartment: String?,
     onLike: (Kudo) -> Unit,
     onCopyLink: (Kudo) -> Unit,
     onDetails: (Kudo) -> Unit,
     onSender: (Kudo) -> Unit,
     onReceiver: (Kudo) -> Unit,
-    onHashtagFilter: () -> Unit,
-    onDeptFilter: () -> Unit,
+    onSelectHashtag: (String) -> Unit,
+    onSelectDepartment: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     // Hoisted above the conditional — remember calls must run on every recomposition.
     val pagerState = rememberPagerState(pageCount = { kudos.size })
     val scope = rememberCoroutineScope()
+
+    // Reset to the first card whenever a filter changes (keyed on the selection, not the list — so a
+    // like-toggle, which mutates list content but not the active filter, never jumps the pager).
+    LaunchedEffect(selectedHashtag, selectedDepartment) {
+        if (kudos.isNotEmpty()) pagerState.scrollToPage(0)
+    }
 
     Column(modifier = modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         SectionHeader(
@@ -57,8 +68,18 @@ fun HighlightSection(
             modifier = Modifier.padding(horizontal = CONTENT_INSET),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            FilterChip(appString(R.string.kudos_filter_hashtag), onHashtagFilter)
-            FilterChip(appString(R.string.kudos_filter_department), onDeptFilter)
+            FilterDropdown(
+                defaultLabel = appString(R.string.kudos_filter_hashtag),
+                options = hashtagOptions,
+                selected = selectedHashtag,
+                onSelect = onSelectHashtag,
+            )
+            FilterDropdown(
+                defaultLabel = appString(R.string.kudos_filter_department),
+                options = departments,
+                selected = selectedDepartment,
+                onSelect = onSelectDepartment,
+            )
         }
 
         if (kudos.isNotEmpty()) {

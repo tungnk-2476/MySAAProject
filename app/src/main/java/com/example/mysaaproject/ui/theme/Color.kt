@@ -25,3 +25,4 @@ val SaaUnreadDot = Color(0xFFD4271D)    // notification row unread indicator
 val SaaCardCream = Color(0xFFFFF8E1)    // kudo card surface
 val SaaBorderMuted = Color(0xFF998C5F)  // muted gold border (send pill, stats)
 val SaaContainerDark = Color(0xFF00070C) // stats container surface
+val SaaDropdownSurface = Color(0xFF161616) // near-black filter dropdown popup (kudos)

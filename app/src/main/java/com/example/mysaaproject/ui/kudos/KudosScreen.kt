@@ -53,6 +53,10 @@ fun KudosScreen(
     recipients: List<GiftRecipient>,
     spotlightCount: Int,
     spotlightNames: List<String>,
+    hashtagOptions: List<String>,
+    departments: List<String>,
+    selectedHashtag: String?,
+    selectedDepartment: String?,
     onSearch: () -> Unit,
     onNotifications: () -> Unit,
     onLike: (Kudo) -> Unit,
@@ -61,8 +65,8 @@ fun KudosScreen(
     onSender: (Kudo) -> Unit,
     onReceiver: (Kudo) -> Unit,
     onSendKudos: () -> Unit,
-    onHashtagFilter: () -> Unit,
-    onDeptFilter: () -> Unit,
+    onSelectHashtag: (String) -> Unit,
+    onSelectDepartment: (String) -> Unit,
     onOpenSecretBox: () -> Unit,
     onRecipientClick: (GiftRecipient) -> Unit,
     onViewAll: () -> Unit,
@@ -79,9 +83,11 @@ fun KudosScreen(
 
                     HighlightSection(
                         kudos = highlightKudos,
+                        hashtagOptions = hashtagOptions, departments = departments,
+                        selectedHashtag = selectedHashtag, selectedDepartment = selectedDepartment,
                         onLike = onLike, onCopyLink = onCopyLink, onDetails = onDetails,
                         onSender = onSender, onReceiver = onReceiver,
-                        onHashtagFilter = onHashtagFilter, onDeptFilter = onDeptFilter,
+                        onSelectHashtag = onSelectHashtag, onSelectDepartment = onSelectDepartment,
                     )
 
                     Spacer(Modifier.height(32.dp))
@@ -157,8 +163,10 @@ private fun KudosScreenPreview() {
             highlightKudos = KudosRepository.highlightKudos, feedKudos = KudosRepository.feedKudos,
             stats = KudosRepository.stats, recipients = KudosRepository.recipients,
             spotlightCount = KudosRepository.spotlightCount, spotlightNames = KudosRepository.spotlightNames,
+            hashtagOptions = KudosRepository.hashtagOptions, departments = KudosRepository.departments,
+            selectedHashtag = null, selectedDepartment = null,
             onSearch = {}, onNotifications = {}, onLike = {}, onCopyLink = {}, onDetails = {},
-            onSender = {}, onReceiver = {}, onSendKudos = {}, onHashtagFilter = {}, onDeptFilter = {},
+            onSender = {}, onReceiver = {}, onSendKudos = {}, onSelectHashtag = {}, onSelectDepartment = {},
             onOpenSecretBox = {}, onRecipientClick = {}, onViewAll = {},
             onSaaTab = {}, onAwardsTab = {}, onProfileTab = {},
         )

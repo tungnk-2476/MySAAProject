@@ -20,6 +20,8 @@ data class Kudo(
     val content: String,
     val hashtags: List<String>,
     val hearts: Int,
+    /** Department the kudo belongs to (used by the Highlight "Phòng ban" filter). */
+    val department: String,
     val liked: Boolean = false,
 )
 

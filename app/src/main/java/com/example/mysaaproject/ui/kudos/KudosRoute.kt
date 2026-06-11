@@ -24,6 +24,8 @@ fun KudosRoute(
     val highlightKudos by viewModel.highlightKudos.collectAsStateWithLifecycle()
     val feedKudos by viewModel.feedKudos.collectAsStateWithLifecycle()
     val unreadCount by viewModel.unreadCount.collectAsStateWithLifecycle()
+    val selectedHashtag by viewModel.selectedHashtag.collectAsStateWithLifecycle()
+    val selectedDepartment by viewModel.selectedDepartment.collectAsStateWithLifecycle()
 
     KudosScreen(
         language = language,
@@ -35,6 +37,10 @@ fun KudosRoute(
         recipients = viewModel.recipients,
         spotlightCount = viewModel.spotlightCount,
         spotlightNames = viewModel.spotlightNames,
+        hashtagOptions = viewModel.hashtagOptions,
+        departments = viewModel.departments,
+        selectedHashtag = selectedHashtag,
+        selectedDepartment = selectedDepartment,
         onSearch = { /* TODO: navigate to Search */ },
         onNotifications = onOpenNotifications,
         onLike = { viewModel.toggleLike(it.id) },
@@ -43,8 +49,8 @@ fun KudosRoute(
         onSender = { /* TODO: navigate to sender profile */ },
         onReceiver = { /* TODO: navigate to receiver profile */ },
         onSendKudos = { /* TODO: open Send Kudos flow */ },
-        onHashtagFilter = { /* TODO: open Hashtag filter sheet */ },
-        onDeptFilter = { /* TODO: open Department filter sheet */ },
+        onSelectHashtag = viewModel::selectHashtag,
+        onSelectDepartment = viewModel::selectDepartment,
         onOpenSecretBox = { /* TODO: open Secret Box flow */ },
         onRecipientClick = { /* TODO: navigate to recipient profile */ },
         onViewAll = { /* TODO: navigate to full Kudos list */ },

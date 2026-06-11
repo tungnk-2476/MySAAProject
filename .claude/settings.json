@@ -55,7 +55,11 @@
       "Bash(./gradlew :app:compileDebugKotlin --console=plain)",
       "Bash(./gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain)",
       "Bash(ADB=\"$HOME/Library/Android/sdk/platform-tools/adb\" *)",
-      "Bash(identify /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/app/src/main/res/drawable/logo_root_further.png)"
+      "Bash(identify /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/app/src/main/res/drawable/logo_root_further.png)",
+      "Bash(mkdir -p /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/plans/260611-kudos-dropdown-filters)",
+      "Bash(./gradlew compileDebugKotlin testDebugUnitTest --console=plain)",
+      "Bash(./gradlew installDebug --console=plain)",
+      "Bash(./gradlew testDebugUnitTest installDebug --console=plain)"
     ],
     "additionalDirectories": [
       "/Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/plans",

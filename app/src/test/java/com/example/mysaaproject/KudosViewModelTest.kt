@@ -39,4 +39,37 @@ class KudosViewModelTest {
     fun formatHearts_usesDotThousandsSeparator() {
         assertEquals("1.000", KudosViewModel.formatHearts(1000))
     }
+
+    @Test
+    fun filterKudos_nullFilters_returnsAll() {
+        val all = KudosRepository.highlightKudos
+        assertEquals(all, KudosViewModel.filterKudos(all, department = null, hashtag = null))
+    }
+
+    @Test
+    fun filterKudos_byDepartment_keepsOnlyThatDepartment() {
+        val all = KudosRepository.highlightKudos
+        val dept = all.first().department
+        val result = KudosViewModel.filterKudos(all, department = dept, hashtag = null)
+        assertTrue(result.isNotEmpty())
+        assertTrue(result.all { it.department == dept })
+    }
+
+    @Test
+    fun filterKudos_byHashtag_keepsOnlyMatchingAndDropsOthers() {
+        val all = KudosRepository.highlightKudos
+        val result = KudosViewModel.filterKudos(all, department = null, hashtag = "#Inspiring")
+        assertTrue(result.isNotEmpty())
+        assertTrue(result.all { "#Inspiring" in it.hashtags })
+        assertEquals(all.count { "#Inspiring" in it.hashtags }, result.size)
+    }
+
+    @Test
+    fun filterKudos_byBoth_appliesAnd() {
+        val all = KudosRepository.highlightKudos
+        val target = all.first { "#Dedicated" in it.hashtags }
+        val result = KudosViewModel.filterKudos(all, department = target.department, hashtag = "#Dedicated")
+        assertTrue(result.isNotEmpty())
+        assertTrue(result.all { it.department == target.department && "#Dedicated" in it.hashtags })
+    }
 }
