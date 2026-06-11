@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.example.mysaaproject.ui.home.HomeRoute
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.login.LoginRoute
+import com.example.mysaaproject.ui.kudos.KudosRoute
 import com.example.mysaaproject.ui.notifications.NotificationsRoute
 import com.example.mysaaproject.ui.standards.CommunityStandardsScreen
 
@@ -16,6 +17,7 @@ object Routes {
     const val HOME = "home"
     const val NOTIFICATIONS = "notifications"
     const val COMMUNITY_STANDARDS = "community_standards"
+    const val KUDOS = "kudos"
 }
 
 /**
@@ -60,6 +62,26 @@ fun AppNavHost(
                 onOpenNotifications = {
                     navController.navigate(Routes.NOTIFICATIONS) { launchSingleTop = true }
                 },
+                onOpenKudos = {
+                    navController.navigate(Routes.KUDOS) { launchSingleTop = true }
+                },
+            )
+        }
+        composable(Routes.KUDOS) {
+            KudosRoute(
+                language = language,
+                onLanguageSelected = onLanguageSelected,
+                onOpenNotifications = {
+                    navController.navigate(Routes.NOTIFICATIONS) { launchSingleTop = true }
+                },
+                onSaaTab = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onAwardsTab = { /* TODO: Awards screen */ },
+                onProfileTab = { /* TODO: Profile screen */ },
             )
         }
         composable(Routes.NOTIFICATIONS) {

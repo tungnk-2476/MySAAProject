@@ -1,4 +1,4 @@
-package com.example.mysaaproject.ui.home
+package com.example.mysaaproject.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -20,7 +20,7 @@ import com.example.mysaaproject.ui.theme.Montserrat
 import com.example.mysaaproject.ui.theme.SaaOnDark
 
 /**
- * Reusable section header (Awards / Kudos): a small eyebrow label with a trailing divider
+ * Reusable section header (Awards / Kudos / etc.): a small eyebrow label with a trailing divider
  * rule, then the large section title. Mirrors the MoMorph "header" component.
  */
 @Composable

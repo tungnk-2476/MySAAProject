@@ -73,4 +73,25 @@
     <string name="cs_security_info_privacy">Information security: All information Sunners share is kept confidential on the system.</string>
     <string name="cs_security_info_scope">Sharing scope: All HR and project information on the system is confidential. Please share only within Sun*.</string>
     <string name="cs_security_contact">Support: For any questions, please contact the SAA organizing representative on Slack — duong.thi.thuy.an.</string>
+
+    <!-- Sun* Kudos screen -->
+    <string name="kudos_tagline">Recognition and thanks system</string>
+    <string name="kudos_send_placeholder">Who do you want to send kudos to today?</string>
+    <string name="kudos_eyebrow">Sun* Annual Awards 2025</string>
+    <string name="kudos_highlight_title">HIGHLIGHT KUDOS</string>
+    <string name="kudos_filter_hashtag">Hashtag</string>
+    <string name="kudos_filter_department">Department</string>
+    <string name="kudos_spotlight_title">SPOTLIGHT BOARD</string>
+    <string name="kudos_search_placeholder">Search</string>
+    <string name="kudos_all_title">ALL KUDOS</string>
+    <string name="kudos_stat_received">Kudos you received:</string>
+    <string name="kudos_stat_sent">Kudos you sent:</string>
+    <string name="kudos_stat_hearts">Hearts you received:</string>
+    <string name="kudos_stat_box_opened">Secret Boxes you opened:</string>
+    <string name="kudos_stat_box_unopened">Unopened Secret Boxes:</string>
+    <string name="kudos_open_secret_box">Open Secret Box</string>
+    <string name="kudos_top10_title">LATEST 10 GIFT RECIPIENTS</string>
+    <string name="kudos_copy_link">Copy Link</string>
+    <string name="kudos_view_detail">View details</string>
+    <string name="kudos_view_all">View all Kudos</string>
 </resources>

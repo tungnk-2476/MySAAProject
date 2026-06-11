@@ -22,3 +22,6 @@ val SaaNavSurface = Color(0xFF021019)  // bottom navigation bar surface
 val SaaBadge = Color(0xFFFF3B30)        // notification unread badge dot
 val SaaDivider = Color(0xFF2E3940)      // list row divider (notifications)
 val SaaUnreadDot = Color(0xFFD4271D)    // notification row unread indicator
+val SaaCardCream = Color(0xFFFFF8E1)    // kudo card surface
+val SaaBorderMuted = Color(0xFF998C5F)  // muted gold border (send pill, stats)
+val SaaContainerDark = Color(0xFF00070C) // stats container surface

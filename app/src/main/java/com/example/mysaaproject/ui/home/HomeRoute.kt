@@ -17,6 +17,7 @@ fun HomeRoute(
     onLanguageSelected: (AppLanguage) -> Unit,
     onLogout: () -> Unit,
     onOpenNotifications: () -> Unit,
+    onOpenKudos: () -> Unit,
     viewModel: HomeViewModel = viewModel(),
 ) {
     val countdown by viewModel.countdown.collectAsStateWithLifecycle()
@@ -40,7 +41,7 @@ fun HomeRoute(
         onWriteKudos = { /* TODO: open WriteKudo form */ },
         onKudosShortcut = { /* TODO: navigate to Kudos feed */ },
         onAwardsTab = { /* TODO: navigate to Awards screen */ },
-        onKudosTab = { /* TODO: navigate to Kudos screen */ },
+        onKudosTab = onOpenKudos,
         // TODO: replace with the Profile screen; interim logout entry so the flow stays reachable.
         onProfileTab = onLogout,
     )

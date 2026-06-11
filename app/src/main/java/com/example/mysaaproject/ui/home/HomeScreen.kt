@@ -27,6 +27,8 @@ import androidx.compose.ui.unit.sp
 import com.example.mysaaproject.R
 import com.example.mysaaproject.data.awards.Award
 import com.example.mysaaproject.data.awards.AwardsRepository
+import com.example.mysaaproject.ui.components.BottomTab
+import com.example.mysaaproject.ui.components.SaaBottomBar
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.locale.ProvideAppLanguage
 import com.example.mysaaproject.ui.locale.appString
@@ -108,7 +110,13 @@ fun HomeScreen(
                 )
             }
 
-            HomeBottomBar(onAwards = onAwardsTab, onKudos = onKudosTab, onProfile = onProfileTab)
+            SaaBottomBar(
+                active = BottomTab.SAA,
+                onSaa = {},
+                onAwards = onAwardsTab,
+                onKudos = onKudosTab,
+                onProfile = onProfileTab,
+            )
         }
 
         HomeHeader(

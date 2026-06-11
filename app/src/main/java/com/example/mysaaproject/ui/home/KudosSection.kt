@@ -11,6 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mysaaproject.R
+import com.example.mysaaproject.ui.components.SectionHeader
 import com.example.mysaaproject.ui.locale.appString
 import com.example.mysaaproject.ui.theme.Montserrat
 import com.example.mysaaproject.ui.theme.SaaOnDark
