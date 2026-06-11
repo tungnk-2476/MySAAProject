@@ -40,6 +40,8 @@ fun FilterChip(label: String, onClick: () -> Unit, modifier: Modifier = Modifier
             fontFamily = Montserrat,
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
+            maxLines = 1,
+            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
         )
         Icon(
             painter = painterResource(R.drawable.ic_arrow_down),

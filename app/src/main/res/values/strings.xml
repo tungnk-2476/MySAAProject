@@ -107,6 +107,14 @@
     <string name="search_sunner_hint">Search Sunner</string>
     <string name="search_recent">Recent</string>
     <string name="search_view_all">View all</string>
+    <string name="award_system_title">SAA 2025 Awards System</string>
+    <string name="award_quantity_label">Number of awards</string>
+    <string name="award_value_label">Award value</string>
+    <string name="award_value_each">per award</string>
+    <string name="award_kudos_title">Sun* Kudos</string>
+    <string name="award_kudos_new_badge">WHAT\'S NEW IN SAA 2025</string>
+    <string name="award_kudos_desc">A movement to recognize and thank colleagues — held for the first time for all Sunners. Launching in November 2025, it encourages Sun* people to share recognition and thanks for colleagues on the system announced by the organizers. This will be material for the Heads Council to reference when selecting award winners.</string>
+    <string name="award_detail_btn">Details</string>
     <string name="kudos_stat_received">Kudos you received:</string>
     <string name="kudos_stat_sent">Kudos you sent:</string>
     <string name="kudos_stat_hearts">Hearts you received:</string>

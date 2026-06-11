@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.mysaaproject.ui.awards.AwardRoute
 import com.example.mysaaproject.ui.home.HomeRoute
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.login.LoginRoute
@@ -29,6 +30,7 @@ object Routes {
     const val KUDOS_VIEW = "kudos_view"
     const val SEND_KUDO = "send_kudo"
     const val KUDOS_SEARCH = "kudos_search"
+    const val AWARDS = "awards"
 
     /** Build the View Kudo detail route for a specific kudo id. */
     fun kudosView(id: String) = "$KUDOS_VIEW/$id"
@@ -79,6 +81,31 @@ fun AppNavHost(
                 onOpenKudos = {
                     navController.navigate(Routes.KUDOS) { launchSingleTop = true }
                 },
+                onOpenAwards = {
+                    navController.navigate(Routes.AWARDS) { launchSingleTop = true }
+                },
+            )
+        }
+        composable(Routes.AWARDS) {
+            AwardRoute(
+                language = language,
+                onLanguageSelected = onLanguageSelected,
+                onOpenSearch = {
+                    navController.navigate(Routes.KUDOS_SEARCH) { launchSingleTop = true }
+                },
+                onOpenNotifications = {
+                    navController.navigate(Routes.NOTIFICATIONS) { launchSingleTop = true }
+                },
+                onOpenKudos = {
+                    navController.navigate(Routes.KUDOS) { launchSingleTop = true }
+                },
+                onSaaTab = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onProfileTab = { /* TODO: Profile screen */ },
             )
         }
         composable(Routes.KUDOS) {
@@ -94,7 +121,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onAwardsTab = { /* TODO: Awards screen */ },
+                onAwardsTab = {
+                    navController.navigate(Routes.AWARDS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
                 onProfileTab = { /* TODO: Profile screen */ },
                 onOpenAllKudos = {
                     navController.navigate(Routes.KUDOS_ALL) { launchSingleTop = true }
@@ -125,7 +157,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onAwardsTab = { /* TODO: Awards screen */ },
+                onAwardsTab = {
+                    navController.navigate(Routes.AWARDS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
                 onProfileTab = { /* TODO: Profile screen */ },
             )
         }
@@ -144,7 +181,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onAwardsTab = { /* TODO: Awards screen */ },
+                onAwardsTab = {
+                    navController.navigate(Routes.AWARDS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
                 onProfileTab = { /* TODO: Profile screen */ },
                 onOpenKudo = { id ->
                     navController.navigate(Routes.kudosView(id)) { launchSingleTop = true }
@@ -166,7 +208,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onAwardsTab = { /* TODO: Awards screen */ },
+                onAwardsTab = {
+                    navController.navigate(Routes.AWARDS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
                 onProfileTab = { /* TODO: Profile screen */ },
             )
         }
@@ -188,7 +235,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onAwardsTab = { /* TODO: Awards screen */ },
+                onAwardsTab = {
+                    navController.navigate(Routes.AWARDS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
                 onProfileTab = { /* TODO: Profile screen */ },
             )
         }

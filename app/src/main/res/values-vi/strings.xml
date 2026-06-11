@@ -103,6 +103,14 @@
     <string name="search_sunner_hint">Search Sunner</string>
     <string name="search_recent">Recent</string>
     <string name="search_view_all">View all</string>
+    <string name="award_system_title">Hệ thống giải thưởng SAA 2025</string>
+    <string name="award_quantity_label">Số lượng giải thưởng</string>
+    <string name="award_value_label">Giá trị giải thưởng</string>
+    <string name="award_value_each">cho mỗi giải thưởng</string>
+    <string name="award_kudos_title">Sun* Kudos</string>
+    <string name="award_kudos_new_badge">ĐIỂM MỚI CỦA SAA 2025</string>
+    <string name="award_kudos_desc">Hoạt động ghi nhận và cảm ơn đồng nghiệp - lần đầu tiên được diễn ra dành cho tất cả Sunner. Hoạt động sẽ được triển khai vào tháng 11/2025, khuyến khích người Sun* chia sẻ những lời ghi nhận, cảm ơn đồng nghiệp trên hệ thống do BTC công bố. Đây sẽ là chất liệu để Hội đồng Heads tham khảo trong quá trình lựa chọn người đạt giải.</string>
+    <string name="award_detail_btn">Chi tiết</string>
     <string name="kudos_stat_received">Số Kudos bạn nhận được:</string>
     <string name="kudos_stat_sent">Số Kudos bạn đã gửi:</string>
     <string name="kudos_stat_hearts">Số tim bạn nhận được:</string>

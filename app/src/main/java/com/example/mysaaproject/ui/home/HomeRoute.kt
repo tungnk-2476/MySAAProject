@@ -18,6 +18,7 @@ fun HomeRoute(
     onLogout: () -> Unit,
     onOpenNotifications: () -> Unit,
     onOpenKudos: () -> Unit,
+    onOpenAwards: () -> Unit,
     viewModel: HomeViewModel = viewModel(),
 ) {
     val countdown by viewModel.countdown.collectAsStateWithLifecycle()
@@ -33,14 +34,14 @@ fun HomeRoute(
         unreadCount = unreadCount,
         onSearch = { /* TODO: navigate to Search screen */ },
         onNotifications = onOpenNotifications,
-        onAboutAward = { /* TODO: navigate to Awards overview */ },
+        onAboutAward = onOpenAwards,
         onAboutKudos = { /* TODO: navigate to Kudos overview */ },
-        onAwardDetails = { /* TODO: navigate to Award detail */ },
+        onAwardDetails = { onOpenAwards() },
         onRetryAwards = viewModel::retryAwards,
         onKudosDetails = { /* TODO: navigate to Kudos detail */ },
         onWriteKudos = { /* TODO: open WriteKudo form */ },
         onKudosShortcut = { /* TODO: navigate to Kudos feed */ },
-        onAwardsTab = { /* TODO: navigate to Awards screen */ },
+        onAwardsTab = onOpenAwards,
         onKudosTab = onOpenKudos,
         // TODO: replace with the Profile screen; interim logout entry so the flow stays reachable.
         onProfileTab = onLogout,
