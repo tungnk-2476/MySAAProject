@@ -15,6 +15,9 @@ object KudosRepository {
     val highlightKudos: List<Kudo> = List(5) { i -> sampleKudo("h$i", i) }
     val feedKudos: List<Kudo> = List(4) { i -> sampleKudo("f$i", i) }
 
+    /** Full Kudos feed shown on the dedicated "All Kudos" screen. */
+    val allKudos: List<Kudo> = List(8) { i -> sampleKudo("a$i", i) }
+
     val stats = KudosStats(
         received = 25,
         sent = 25,

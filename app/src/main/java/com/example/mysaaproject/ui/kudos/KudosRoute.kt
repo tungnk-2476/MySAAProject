@@ -19,6 +19,7 @@ fun KudosRoute(
     onSaaTab: () -> Unit,
     onAwardsTab: () -> Unit,
     onProfileTab: () -> Unit,
+    onOpenAllKudos: () -> Unit,
     viewModel: KudosViewModel = viewModel(),
 ) {
     val highlightKudos by viewModel.highlightKudos.collectAsStateWithLifecycle()
@@ -53,7 +54,7 @@ fun KudosRoute(
         onSelectDepartment = viewModel::selectDepartment,
         onOpenSecretBox = { /* TODO: open Secret Box flow */ },
         onRecipientClick = { /* TODO: navigate to recipient profile */ },
-        onViewAll = { /* TODO: navigate to full Kudos list */ },
+        onViewAll = onOpenAllKudos,
         onSaaTab = onSaaTab,
         onAwardsTab = onAwardsTab,
         onProfileTab = onProfileTab,

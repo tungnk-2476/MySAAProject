@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.example.mysaaproject.ui.home.HomeRoute
 import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.login.LoginRoute
+import com.example.mysaaproject.ui.kudos.AllKudosRoute
 import com.example.mysaaproject.ui.kudos.KudosRoute
 import com.example.mysaaproject.ui.notifications.NotificationsRoute
 import com.example.mysaaproject.ui.standards.CommunityStandardsScreen
@@ -18,6 +19,7 @@ object Routes {
     const val NOTIFICATIONS = "notifications"
     const val COMMUNITY_STANDARDS = "community_standards"
     const val KUDOS = "kudos"
+    const val KUDOS_ALL = "kudos_all"
 }
 
 /**
@@ -77,6 +79,28 @@ fun AppNavHost(
                 onSaaTab = {
                     navController.navigate(Routes.HOME) {
                         popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onAwardsTab = { /* TODO: Awards screen */ },
+                onProfileTab = { /* TODO: Profile screen */ },
+                onOpenAllKudos = {
+                    navController.navigate(Routes.KUDOS_ALL) { launchSingleTop = true }
+                },
+            )
+        }
+        composable(Routes.KUDOS_ALL) {
+            AllKudosRoute(
+                onBack = { navController.popBackStack() },
+                onSaaTab = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onKudosTab = {
+                    navController.navigate(Routes.KUDOS) {
+                        popUpTo(Routes.KUDOS) { inclusive = false }
                         launchSingleTop = true
                     }
                 },

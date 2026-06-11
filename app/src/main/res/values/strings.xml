@@ -84,6 +84,7 @@
     <string name="kudos_spotlight_title">SPOTLIGHT BOARD</string>
     <string name="kudos_search_placeholder">Search</string>
     <string name="kudos_all_title">ALL KUDOS</string>
+    <string name="kudos_all_screen_title">All Kudos</string>
     <string name="kudos_stat_received">Kudos you received:</string>
     <string name="kudos_stat_sent">Kudos you sent:</string>
     <string name="kudos_stat_hearts">Hearts you received:</string>

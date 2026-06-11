@@ -72,4 +72,22 @@ class KudosViewModelTest {
         assertTrue(result.isNotEmpty())
         assertTrue(result.all { it.department == target.department && "#Dedicated" in it.hashtags })
     }
+
+    @Test
+    fun allKudos_isPopulatedWithUniqueIds() {
+        val all = KudosRepository.allKudos
+        assertTrue(all.isNotEmpty())
+        assertEquals(all.size, all.map { it.id }.toSet().size)
+    }
+
+    @Test
+    fun allKudos_likeToggle_adjustsOnlyTargetCard() {
+        val seed = KudosRepository.allKudos
+        val target = seed.first()
+        val result = KudosViewModel.toggleLikeIn(seed, target.id)
+        val liked = result.first { it.id == target.id }
+        assertTrue(liked.liked)
+        assertEquals(target.hearts + 1, liked.hearts)
+        assertEquals(seed.drop(1), result.drop(1))
+    }
 }
