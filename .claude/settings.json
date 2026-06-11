@@ -61,7 +61,8 @@
       "Bash(./gradlew installDebug --console=plain)",
       "Bash(./gradlew testDebugUnitTest installDebug --console=plain)",
       "Bash(./gradlew compileDebugKotlin testDebugUnitTest installDebug --console=plain)",
-      "Bash(./gradlew testDebugUnitTest --console=plain)"
+      "Bash(./gradlew testDebugUnitTest --console=plain)",
+      "Bash(xargs ls -la)"
     ],
     "additionalDirectories": [
       "/Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/plans",

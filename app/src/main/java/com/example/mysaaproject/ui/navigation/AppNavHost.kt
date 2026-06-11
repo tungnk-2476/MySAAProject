@@ -12,6 +12,8 @@ import com.example.mysaaproject.ui.locale.AppLanguage
 import com.example.mysaaproject.ui.login.LoginRoute
 import com.example.mysaaproject.ui.kudos.AllKudosRoute
 import com.example.mysaaproject.ui.kudos.KudosRoute
+import com.example.mysaaproject.ui.kudos.SearchSunnerRoute
+import com.example.mysaaproject.ui.kudos.SendKudoRoute
 import com.example.mysaaproject.ui.kudos.ViewKudoRoute
 import com.example.mysaaproject.ui.kudos.ViewKudoViewModel
 import com.example.mysaaproject.ui.notifications.NotificationsRoute
@@ -25,6 +27,8 @@ object Routes {
     const val KUDOS = "kudos"
     const val KUDOS_ALL = "kudos_all"
     const val KUDOS_VIEW = "kudos_view"
+    const val SEND_KUDO = "send_kudo"
+    const val KUDOS_SEARCH = "kudos_search"
 
     /** Build the View Kudo detail route for a specific kudo id. */
     fun kudosView(id: String) = "$KUDOS_VIEW/$id"
@@ -98,6 +102,31 @@ fun AppNavHost(
                 onOpenKudo = { id ->
                     navController.navigate(Routes.kudosView(id)) { launchSingleTop = true }
                 },
+                onSendKudo = {
+                    navController.navigate(Routes.SEND_KUDO) { launchSingleTop = true }
+                },
+                onOpenSearch = {
+                    navController.navigate(Routes.KUDOS_SEARCH) { launchSingleTop = true }
+                },
+            )
+        }
+        composable(Routes.KUDOS_SEARCH) {
+            SearchSunnerRoute(
+                onBack = { navController.popBackStack() },
+                onSaaTab = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onKudosTab = {
+                    navController.navigate(Routes.KUDOS) {
+                        popUpTo(Routes.KUDOS) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onAwardsTab = { /* TODO: Awards screen */ },
+                onProfileTab = { /* TODO: Profile screen */ },
             )
         }
         composable(Routes.KUDOS_ALL) {
@@ -120,6 +149,25 @@ fun AppNavHost(
                 onOpenKudo = { id ->
                     navController.navigate(Routes.kudosView(id)) { launchSingleTop = true }
                 },
+            )
+        }
+        composable(Routes.SEND_KUDO) {
+            SendKudoRoute(
+                onClose = { navController.popBackStack() },
+                onSaaTab = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onKudosTab = {
+                    navController.navigate(Routes.KUDOS) {
+                        popUpTo(Routes.KUDOS) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onAwardsTab = { /* TODO: Awards screen */ },
+                onProfileTab = { /* TODO: Profile screen */ },
             )
         }
         composable(

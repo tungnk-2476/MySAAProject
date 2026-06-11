@@ -22,6 +22,38 @@ object KudosRepository {
     fun findById(id: String): Kudo? =
         (highlightKudos + feedKudos + allKudos).firstOrNull { it.id == id }
 
+    // --- New Kudo (Send Kudo) form options ---
+
+    /** Recent Sunner searches shown on the Search Sunner screen (reuses [Recipient]; own id namespace). */
+    val recentSearches = listOf(
+        Recipient("rs1", "Dương Huỳnh Xuân Nhật", "CECV1"),
+        Recipient("rs2", "Dương Huỳnh Xuân Nhật", "CECV1"),
+    )
+
+    /** Recipient search results for the "Người nhận" dropdown. */
+    val kudoRecipients = listOf(
+        Recipient("u1", "Dương Huỳnh Xuân Nhật", "CECV1"),
+        Recipient("u2", "Dương Huỳnh Xuân Nhân", "CECV1"),
+        Recipient("u3", "Huỳnh Dương Xuân Nhật", "CECV10"),
+        Recipient("u4", "Đỗ Hoàng Hiệp", "OPD"),
+        Recipient("u5", "Mai Phương Thúy", "Infra"),
+    )
+
+    /** Award titles (danh hiệu) for the New Kudo title selector. */
+    val titleOptions = listOf(
+        "NGƯỜI HÙNG CỦA LÒNG EM",
+        "IDOL GIỚI TRẺ",
+        "IDOL THẦM LẶNG",
+        "CHIẾN BINH QUẢ CẢM",
+        "NGÔI SAO HY VỌNG",
+    )
+
+    /** Hashtag options for the New Kudo hashtag dropdown (literal design values). */
+    val sendHashtagOptions = listOf(
+        "#High-perorming", "#BE PROFESSIONAL", "#BE OPTIMISTIC", "#BE A TEAM",
+        "#THINK OUTSIDE THE BOX", "#GET RISKY", "#GO FAST", "#WASSHOI",
+    )
+
     val stats = KudosStats(
         received = 25,
         sent = 25,
