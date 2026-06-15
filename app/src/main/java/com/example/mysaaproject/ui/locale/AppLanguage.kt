@@ -17,5 +17,8 @@ enum class AppLanguage(
 
     companion object {
         val DEFAULT = VN
+
+        /** Resolve a persisted [localeTag] back to a language; unknown/null falls back to [DEFAULT]. */
+        fun fromTag(tag: String?): AppLanguage = entries.firstOrNull { it.localeTag == tag } ?: DEFAULT
     }
 }

@@ -80,7 +80,7 @@ fun KudoCard(
 
         Text(kudo.time, color = MutedInk, fontFamily = Montserrat, fontSize = 10.sp)
         Text(
-            text = kudo.title,
+            text = appString(kudo.title),
             color = InkColor,
             fontFamily = Montserrat,
             fontWeight = FontWeight.Bold,
@@ -89,7 +89,7 @@ fun KudoCard(
             modifier = if (centerTitle) Modifier.fillMaxWidth() else Modifier,
         )
         Text(
-            text = kudo.content,
+            text = appString(kudo.content),
             color = InkColor,
             fontFamily = Montserrat,
             fontSize = 12.sp,

@@ -14,7 +14,7 @@
     <string name="home_countdown_hours">HOURS</string>
     <string name="home_countdown_minutes">MINUTES</string>
     <string name="home_event_time_label">Thời gian:</string>
-    <string name="home_event_date">26/12/2025</string>
+    <string name="home_event_date">15/12/2026</string>
     <string name="home_event_venue_label">Địa điểm:</string>
     <string name="home_event_venue">Âu Cơ Art Center</string>
     <string name="home_event_livestream">Tường thuật trực tiếp tại Group Facebook Sun* Family</string>
@@ -121,4 +121,50 @@
     <string name="kudos_copy_link">Copy Link</string>
     <string name="kudos_view_detail">Xem chi tiết</string>
     <string name="kudos_view_all">View all Kudos</string>
+
+    <!-- Profile screen -->
+    <string name="profile_icon_collection">Bộ sưu tập icon của tôi</string>
+    <string name="profile_kudos_title">KUDOS</string>
+    <string name="profile_filter_received">Đã nhận</string>
+    <string name="profile_filter_sent">Đã gửi</string>
+    <string name="profile_received_count">Đã nhận %1$d kudos</string>
+    <string name="profile_thank_you">Gửi lời cảm ơn và ghi nhận tới %1$s</string>
+
+    <!-- Awards (mock content) -->
+    <string name="award_top_talent_name">Top Talent</string>
+    <string name="award_top_talent_desc">Giải thưởng Top Talent vinh danh những cá nhân xuất sắc trên mọi phương diện.</string>
+    <string name="award_top_talent_long">Giải thưởng Top Talent vinh danh những cá nhân xuất sắc toàn diện – những người không ngừng khẳng định năng lực chuyên môn vững vàng, hiệu suất công việc vượt trội, luôn mang lại giá trị vượt kỳ vọng, được đánh giá cao bởi khách hàng và đồng đội. Với tinh thần sẵn sàng nhận mọi nhiệm vụ tổ chức giao phó, họ luôn là nguồn cảm hứng, thúc đẩy động lực và tạo ảnh hưởng tích cực đến cả tập thể.</string>
+    <string name="award_top_project_name">Top Project</string>
+    <string name="award_top_project_desc">Giải thưởng Top Project vinh danh các tập thể dự án xuất sắc nhất năm.</string>
+    <string name="award_top_project_long">Giải thưởng Top Project vinh danh các tập thể dự án xuất sắc nhất năm – những đội ngũ tạo ra sản phẩm chất lượng, hợp tác hiệu quả và mang lại giá trị vượt trội cho khách hàng cũng như tổ chức.</string>
+    <string name="award_top_leader_name">Top Project Leader</string>
+    <string name="award_top_leader_desc">Vinh danh những người dẫn dắt dự án xuất sắc và truyền cảm hứng cho đồng đội.</string>
+    <string name="award_top_leader_long">Vinh danh những người dẫn dắt dự án xuất sắc – những leader truyền cảm hứng, định hướng rõ ràng và đưa đội ngũ vượt qua thử thách để đạt kết quả ấn tượng.</string>
+    <string name="award_unit_individual">Cá nhân</string>
+    <string name="award_unit_project">Dự án</string>
+    <string name="award_prize_talent">7.000.000 VNĐ</string>
+    <string name="award_prize_project">20.000.000 VNĐ</string>
+    <string name="award_prize_leader">10.000.000 VNĐ</string>
+
+    <!-- Notifications (mock content) -->
+    <string name="notif_msg_kudos_received">Sunner Huỳnh Dương Xuân Nhật vừa gửi đến bạn lời ghi nhận đầy yêu thương!</string>
+    <string name="notif_msg_heart_received">Wow! Lời nhắn gửi của bạn cho Sunner &lt;tên Sunner&gt; vừa nhận thêm lượt tim!</string>
+    <string name="notif_msg_secret_box">Chúc mừng! Bạn vừa nhận được lượt mở Secret Box mới! Click vào đây để mở ngay nhé!</string>
+    <string name="notif_msg_level_up">Bạn nhận được &lt;X&gt; lời nhắn gửi từ đồng nghiệp và thăng hạng &lt;tên level&gt;! Tiếp tục lan tỏa năng lượng tích cực đến đồng nghiệp nhé!</string>
+    <string name="notif_msg_content_hidden">Tiếc quá! Bạn có một lời nhắn bị tạm ẩn vì \"vướng\" một số tiêu chuẩn! Hãy xem các tiêu chuẩn và gửi lại cho đồng đội nhé!</string>
+    <string name="notif_msg_badge_collected">Chúc mừng bạn đã thu thập đủ 6 huy hiệu của SAA. Bạn đã nhận được phần quà từ BTC chính là &lt;X&gt;. BTC sẽ liên hệ để gửi quà đến bạn vào cuối sự kiện.</string>
+    <string name="notif_msg_review_request">\"Có &lt;x&gt; lời nhắn cần bạn xem xét!\" Một lời nhắn vừa bị hệ thống gắn cờ nghi ngờ vi phạm tiêu chuẩn. Vui lòng kiểm tra và xác nhận trạng thái: Hợp lệ / Tạm ẩn / Reject.</string>
+    <string name="notif_time_15min">15 phút trước</string>
+    <string name="notif_time_1hour">1 giờ trước</string>
+    <string name="notif_time_1day">1 ngày trước</string>
+    <string name="notif_time_1month">1 tháng trước</string>
+
+    <!-- Kudos (mock content) -->
+    <string name="kudo_sample_content">Cảm ơn người em bình thường nhưng phi thường :D Cảm ơn sự chăm chỉ, cần mẫn của em đã tạo động lực rất lớn cho cả team trong suốt thời gian qua. Chúc em luôn giữ vững tinh thần này nhé!</string>
+    <string name="kudo_gift_received">Nhận được 1 áo phông SAA</string>
+    <string name="kudo_title_my_hero">NGƯỜI HÙNG CỦA LÒNG EM</string>
+    <string name="kudo_title_youth_idol">IDOL GIỚI TRẺ</string>
+    <string name="kudo_title_silent_idol">IDOL THẦM LẶNG</string>
+    <string name="kudo_title_brave_warrior">CHIẾN BINH QUẢ CẢM</string>
+    <string name="kudo_title_star_of_hope">NGÔI SAO HY VỌNG</string>
 </resources>

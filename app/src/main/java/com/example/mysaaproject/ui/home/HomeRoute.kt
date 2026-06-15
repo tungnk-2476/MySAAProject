@@ -15,10 +15,13 @@ import com.example.mysaaproject.ui.locale.AppLanguage
 fun HomeRoute(
     language: AppLanguage,
     onLanguageSelected: (AppLanguage) -> Unit,
-    onLogout: () -> Unit,
+    // Logout currently has no designed UI entry; the plumbing is retained for a future
+    // Profile/settings sign-out action. The Profile tab now opens the Profile screen.
+    @Suppress("UNUSED_PARAMETER") onLogout: () -> Unit,
     onOpenNotifications: () -> Unit,
     onOpenKudos: () -> Unit,
     onOpenAwards: () -> Unit,
+    onOpenProfile: () -> Unit,
     viewModel: HomeViewModel = viewModel(),
 ) {
     val countdown by viewModel.countdown.collectAsStateWithLifecycle()
@@ -43,7 +46,6 @@ fun HomeRoute(
         onKudosShortcut = { /* TODO: navigate to Kudos feed */ },
         onAwardsTab = onOpenAwards,
         onKudosTab = onOpenKudos,
-        // TODO: replace with the Profile screen; interim logout entry so the flow stays reachable.
-        onProfileTab = onLogout,
+        onProfileTab = onOpenProfile,
     )
 }

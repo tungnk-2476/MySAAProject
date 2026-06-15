@@ -27,9 +27,16 @@ import com.example.mysaaproject.ui.theme.SaaBorderMuted
 import com.example.mysaaproject.ui.theme.SaaButton
 import com.example.mysaaproject.ui.theme.SaaOnDark
 
-/** Send-Kudos entry pill (A.1): pencil icon + placeholder. Tap is a no-op TODO (send flow out of scope). */
+/**
+ * Send-Kudos entry pill (A.1): pencil icon + placeholder text. Reused as the other-profile
+ * "thank-you" CTA by overriding [label]. The default keeps the Kudos-screen placeholder.
+ */
 @Composable
-fun SendKudosBar(onClick: () -> Unit, modifier: Modifier = Modifier) {
+fun SendKudosBar(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    label: String = appString(R.string.kudos_send_placeholder),
+) {
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -49,7 +56,7 @@ fun SendKudosBar(onClick: () -> Unit, modifier: Modifier = Modifier) {
             modifier = Modifier.size(20.dp),
         )
         Text(
-            text = appString(R.string.kudos_send_placeholder),
+            text = label,
             color = SaaOnDark.copy(alpha = 0.7f),
             fontFamily = Montserrat,
             fontWeight = FontWeight.Normal,

@@ -21,4 +21,17 @@ class AppLanguageTest {
         assertEquals("vi", AppLanguage.VN.localeTag)
         assertEquals("en", AppLanguage.EN.localeTag)
     }
+
+    @Test
+    fun fromTag_resolvesKnownTags() {
+        assertEquals(AppLanguage.VN, AppLanguage.fromTag("vi"))
+        assertEquals(AppLanguage.EN, AppLanguage.fromTag("en"))
+    }
+
+    @Test
+    fun fromTag_unknownOrNull_fallsBackToDefault() {
+        assertEquals(AppLanguage.DEFAULT, AppLanguage.fromTag(null))
+        assertEquals(AppLanguage.DEFAULT, AppLanguage.fromTag(""))
+        assertEquals(AppLanguage.DEFAULT, AppLanguage.fromTag("fr"))
+    }
 }

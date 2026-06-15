@@ -87,11 +87,15 @@ class HomeViewModel : ViewModel() {
     fun retryAwards() = loadAwards()
 
     companion object {
-        /** Event date 26/12/2025 00:00 (Asia/Ho_Chi_Minh). Calendar keeps this API 24-safe. */
+        /**
+         * Event date 15/12/2026 00:00 (Asia/Ho_Chi_Minh) — a near-future mock so the Home countdown
+         * stays live ("Coming soon"); keep in sync with the `home_event_date` string. Calendar keeps
+         * this API 24-safe. Replace with the real event date / backend value when available.
+         */
         val eventEpochMillis: Long = Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"))
             .apply {
                 clear()
-                set(2025, Calendar.DECEMBER, 26, 0, 0, 0)
+                set(2026, Calendar.DECEMBER, 15, 0, 0, 0)
             }
             .timeInMillis
 

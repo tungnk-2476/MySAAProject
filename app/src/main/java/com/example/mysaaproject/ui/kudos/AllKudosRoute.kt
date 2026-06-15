@@ -17,6 +17,7 @@ fun AllKudosRoute(
     onAwardsTab: () -> Unit,
     onProfileTab: () -> Unit,
     onOpenKudo: (String) -> Unit,
+    onOpenProfile: (String, String) -> Unit,
     viewModel: AllKudosViewModel = viewModel(),
 ) {
     val kudos by viewModel.kudos.collectAsStateWithLifecycle()
@@ -27,8 +28,8 @@ fun AllKudosRoute(
         onLike = { viewModel.toggleLike(it.id) },
         onCopyLink = { /* TODO: copy link + toast */ },
         onDetails = { onOpenKudo(it.id) },
-        onSender = { /* TODO: navigate to sender profile */ },
-        onReceiver = { /* TODO: navigate to receiver profile */ },
+        onSender = { onOpenProfile(it.senderName, it.senderCode) },
+        onReceiver = { onOpenProfile(it.receiverName, it.receiverCode) },
         onSaaTab = onSaaTab,
         onKudosTab = onKudosTab,
         onAwardsTab = onAwardsTab,

@@ -23,6 +23,7 @@ fun KudosRoute(
     onOpenKudo: (String) -> Unit,
     onSendKudo: () -> Unit,
     onOpenSearch: () -> Unit,
+    onOpenProfile: (String, String) -> Unit,
     viewModel: KudosViewModel = viewModel(),
 ) {
     val highlightKudos by viewModel.highlightKudos.collectAsStateWithLifecycle()
@@ -50,8 +51,8 @@ fun KudosRoute(
         onLike = { viewModel.toggleLike(it.id) },
         onCopyLink = { /* TODO: copy link + toast */ },
         onDetails = { onOpenKudo(it.id) },
-        onSender = { /* TODO: navigate to sender profile */ },
-        onReceiver = { /* TODO: navigate to receiver profile */ },
+        onSender = { onOpenProfile(it.senderName, it.senderCode) },
+        onReceiver = { onOpenProfile(it.receiverName, it.receiverCode) },
         onSendKudos = onSendKudo,
         onSelectHashtag = viewModel::selectHashtag,
         onSelectDepartment = viewModel::selectDepartment,

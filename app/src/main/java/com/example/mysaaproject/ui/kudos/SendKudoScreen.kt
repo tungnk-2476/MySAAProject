@@ -24,7 +24,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -46,11 +45,11 @@ private val CONTENT_INSET = 16.dp
 @Composable
 fun SendKudoScreen(
     uiState: SendKudoUiState,
-    titleOptions: List<String>,
+    titleOptions: List<Int>,
     hashtagOptions: List<String>,
     onRecipientQueryChange: (String) -> Unit,
     onSelectRecipient: (Recipient) -> Unit,
-    onSelectTitle: (String) -> Unit,
+    onSelectTitle: (Int) -> Unit,
     onMessageChange: (String) -> Unit,
     onToggleHashtag: (String) -> Unit,
     onAddImage: () -> Unit,
@@ -146,7 +145,7 @@ private fun SendKudoScreenPreview() {
                 selectedHashtags = listOf("#BE OPTIMISTIC", "#WASSHOI"),
                 imageCount = 3, anonymous = true, nickname = "Doraemon",
             ),
-            titleOptions = listOf("NGƯỜI HÙNG CỦA LÒNG EM"),
+            titleOptions = listOf(R.string.kudo_title_my_hero),
             hashtagOptions = listOf("#BE A TEAM", "#GO FAST"),
             onRecipientQueryChange = {}, onSelectRecipient = {}, onSelectTitle = {}, onMessageChange = {},
             onToggleHashtag = {}, onAddImage = {}, onRemoveImage = {}, onToggleAnonymous = {}, onNicknameChange = {},

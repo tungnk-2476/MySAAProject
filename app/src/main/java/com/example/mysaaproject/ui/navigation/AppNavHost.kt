@@ -1,5 +1,6 @@
 package com.example.mysaaproject.ui.navigation
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -18,6 +19,9 @@ import com.example.mysaaproject.ui.kudos.SendKudoRoute
 import com.example.mysaaproject.ui.kudos.ViewKudoRoute
 import com.example.mysaaproject.ui.kudos.ViewKudoViewModel
 import com.example.mysaaproject.ui.notifications.NotificationsRoute
+import com.example.mysaaproject.ui.profile.OtherProfileRoute
+import com.example.mysaaproject.ui.profile.OtherProfileViewModel
+import com.example.mysaaproject.ui.profile.ProfileRoute
 import com.example.mysaaproject.ui.standards.CommunityStandardsScreen
 
 object Routes {
@@ -31,9 +35,15 @@ object Routes {
     const val SEND_KUDO = "send_kudo"
     const val KUDOS_SEARCH = "kudos_search"
     const val AWARDS = "awards"
+    const val PROFILE = "profile"
+    const val PROFILE_OTHER = "profile_other"
 
     /** Build the View Kudo detail route for a specific kudo id. */
     fun kudosView(id: String) = "$KUDOS_VIEW/$id"
+
+    /** Build the other-member profile route (name/code are URL-encoded — they contain spaces). */
+    fun profileOther(name: String, code: String) =
+        "$PROFILE_OTHER/${Uri.encode(name)}/${Uri.encode(code)}"
 }
 
 /**
@@ -84,6 +94,12 @@ fun AppNavHost(
                 onOpenAwards = {
                     navController.navigate(Routes.AWARDS) { launchSingleTop = true }
                 },
+                onOpenProfile = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
             )
         }
         composable(Routes.AWARDS) {
@@ -105,7 +121,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onProfileTab = { /* TODO: Profile screen */ },
+                onProfileTab = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
             )
         }
         composable(Routes.KUDOS) {
@@ -127,7 +148,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onProfileTab = { /* TODO: Profile screen */ },
+                onProfileTab = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
                 onOpenAllKudos = {
                     navController.navigate(Routes.KUDOS_ALL) { launchSingleTop = true }
                 },
@@ -139,6 +165,9 @@ fun AppNavHost(
                 },
                 onOpenSearch = {
                     navController.navigate(Routes.KUDOS_SEARCH) { launchSingleTop = true }
+                },
+                onOpenProfile = { name, code ->
+                    navController.navigate(Routes.profileOther(name, code)) { launchSingleTop = true }
                 },
             )
         }
@@ -163,7 +192,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onProfileTab = { /* TODO: Profile screen */ },
+                onProfileTab = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
             )
         }
         composable(Routes.KUDOS_ALL) {
@@ -187,9 +221,17 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onProfileTab = { /* TODO: Profile screen */ },
+                onProfileTab = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
                 onOpenKudo = { id ->
                     navController.navigate(Routes.kudosView(id)) { launchSingleTop = true }
+                },
+                onOpenProfile = { name, code ->
+                    navController.navigate(Routes.profileOther(name, code)) { launchSingleTop = true }
                 },
             )
         }
@@ -214,7 +256,12 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onProfileTab = { /* TODO: Profile screen */ },
+                onProfileTab = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
             )
         }
         composable(
@@ -241,7 +288,102 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
-                onProfileTab = { /* TODO: Profile screen */ },
+                onProfileTab = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onOpenProfile = { name, code ->
+                    navController.navigate(Routes.profileOther(name, code)) { launchSingleTop = true }
+                },
+            )
+        }
+        composable(Routes.PROFILE) {
+            ProfileRoute(
+                language = language,
+                onLanguageSelected = onLanguageSelected,
+                onOpenNotifications = {
+                    navController.navigate(Routes.NOTIFICATIONS) { launchSingleTop = true }
+                },
+                onOpenSearch = {
+                    navController.navigate(Routes.KUDOS_SEARCH) { launchSingleTop = true }
+                },
+                onSaaTab = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onAwardsTab = {
+                    navController.navigate(Routes.AWARDS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onKudosTab = {
+                    navController.navigate(Routes.KUDOS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onOpenKudo = { id ->
+                    navController.navigate(Routes.kudosView(id)) { launchSingleTop = true }
+                },
+                onOpenProfile = { name, code ->
+                    navController.navigate(Routes.profileOther(name, code)) { launchSingleTop = true }
+                },
+            )
+        }
+        composable(
+            route = "${Routes.PROFILE_OTHER}/{${OtherProfileViewModel.ARG_NAME}}/{${OtherProfileViewModel.ARG_CODE}}",
+            arguments = listOf(
+                navArgument(OtherProfileViewModel.ARG_NAME) { type = NavType.StringType },
+                navArgument(OtherProfileViewModel.ARG_CODE) { type = NavType.StringType },
+            ),
+        ) {
+            OtherProfileRoute(
+                language = language,
+                onLanguageSelected = onLanguageSelected,
+                onOpenNotifications = {
+                    navController.navigate(Routes.NOTIFICATIONS) { launchSingleTop = true }
+                },
+                onOpenSearch = {
+                    navController.navigate(Routes.KUDOS_SEARCH) { launchSingleTop = true }
+                },
+                onSendThanks = {
+                    navController.navigate(Routes.SEND_KUDO) { launchSingleTop = true }
+                },
+                onSaaTab = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onAwardsTab = {
+                    navController.navigate(Routes.AWARDS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onKudosTab = {
+                    navController.navigate(Routes.KUDOS) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onProfileTab = {
+                    navController.navigate(Routes.PROFILE) {
+                        popUpTo(Routes.HOME) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
+                onOpenKudo = { id ->
+                    navController.navigate(Routes.kudosView(id)) { launchSingleTop = true }
+                },
+                onOpenProfile = { name, code ->
+                    navController.navigate(Routes.profileOther(name, code)) { launchSingleTop = true }
+                },
             )
         }
         composable(Routes.NOTIFICATIONS) {

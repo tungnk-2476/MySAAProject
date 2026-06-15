@@ -1,8 +1,11 @@
 package com.example.mysaaproject.data.kudos
 
+import com.example.mysaaproject.R
+
 /**
  * Stub Kudos data — no backend yet. Mock content extracted from the MoMorph "[iOS] Sun*Kudos"
  * design (highlight carousel, all-kudos feed, personal stats, top-10 recipients, spotlight board).
+ * Localizable prose (kudo title/content, gift message, title options) is held as string-resource ids.
  */
 object KudosRepository {
 
@@ -39,13 +42,13 @@ object KudosRepository {
         Recipient("u5", "Mai Phương Thúy", "Infra"),
     )
 
-    /** Award titles (danh hiệu) for the New Kudo title selector. */
+    /** Award titles (danh hiệu) for the New Kudo title selector (localizable string-resource ids). */
     val titleOptions = listOf(
-        "NGƯỜI HÙNG CỦA LÒNG EM",
-        "IDOL GIỚI TRẺ",
-        "IDOL THẦM LẶNG",
-        "CHIẾN BINH QUẢ CẢM",
-        "NGÔI SAO HY VỌNG",
+        R.string.kudo_title_my_hero,
+        R.string.kudo_title_youth_idol,
+        R.string.kudo_title_silent_idol,
+        R.string.kudo_title_brave_warrior,
+        R.string.kudo_title_star_of_hope,
     )
 
     /** Hashtag options for the New Kudo hashtag dropdown (literal design values). */
@@ -64,7 +67,7 @@ object KudosRepository {
     )
 
     val recipients: List<GiftRecipient> = List(3) { i ->
-        GiftRecipient("r$i", "Huỳnh Dương Xuân", "Nhận được 1 áo phông SAA")
+        GiftRecipient("r$i", "Huỳnh Dương Xuân", R.string.kudo_gift_received)
     }
 
     val spotlightCount = 388
@@ -89,10 +92,8 @@ object KudosRepository {
             receiverCode = "CECV10",
             receiverHero = HeroLevel.LEGEND,
             time = "10:00 - 10/30/2025",
-            title = "IDOL GIỚI TRẺ",
-            content = "Cảm ơn người em bình thường nhưng phi thường :D Cảm ơn sự chăm chỉ, " +
-                "cần mẫn của em đã tạo động lực rất lớn cho cả team trong suốt thời gian qua. " +
-                "Chúc em luôn giữ vững tinh thần này nhé!",
+            title = R.string.kudo_title_youth_idol,
+            content = R.string.kudo_sample_content,
             hashtags = List(6) { i -> tags[i % tags.size] },
             hearts = 1000 + index,
             liked = false,

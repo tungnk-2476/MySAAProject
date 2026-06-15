@@ -1,12 +1,14 @@
 package com.example.mysaaproject.data.awards
 
+import com.example.mysaaproject.R
 import kotlinx.coroutines.delay
 
 /**
  * Stubbed awards data source. No backend exists yet, so this returns mock award data
  * extracted from the MoMorph design after a short simulated latency (so the Home screen's
  * Loading state is observable). Returns [Result] so the ViewModel can model Success/Error
- * and drive the Retry flow (TC_IOS_HOME_FUN_003).
+ * and drive the Retry flow (TC_IOS_HOME_FUN_003). Text is held as string-resource ids so awards
+ * switch with the app language.
  */
 class AwardsRepository {
 
@@ -21,37 +23,30 @@ class AwardsRepository {
         val MOCK_AWARDS = listOf(
             Award(
                 id = "top_talent",
-                name = "Top Talent",
-                description = "Giải thưởng Top Talent vinh danh những cá nhân xuất sắc trên mọi phương diện.",
-                longDescription = "Giải thưởng Top Talent vinh danh những cá nhân xuất sắc toàn diện – những " +
-                    "người không ngừng khẳng định năng lực chuyên môn vững vàng, hiệu suất công việc vượt trội, " +
-                    "luôn mang lại giá trị vượt kỳ vọng, được đánh giá cao bởi khách hàng và đồng đội. Với tinh " +
-                    "thần sẵn sàng nhận mọi nhiệm vụ tổ chức giao phó, họ luôn là nguồn cảm hứng, thúc đẩy động " +
-                    "lực và tạo ảnh hưởng tích cực đến cả tập thể.",
+                name = R.string.award_top_talent_name,
+                description = R.string.award_top_talent_desc,
+                longDescription = R.string.award_top_talent_long,
                 quantity = 10,
-                quantityUnit = "Cá nhân",
-                prizeValue = "7.000.000 VNĐ",
+                quantityUnit = R.string.award_unit_individual,
+                prizeValue = R.string.award_prize_talent,
             ),
             Award(
                 id = "top_project",
-                name = "Top Project",
-                description = "Giải thưởng Top Project vinh danh các tập thể dự án xuất sắc nhất năm.",
-                longDescription = "Giải thưởng Top Project vinh danh các tập thể dự án xuất sắc nhất năm – " +
-                    "những đội ngũ tạo ra sản phẩm chất lượng, hợp tác hiệu quả và mang lại giá trị vượt trội cho " +
-                    "khách hàng cũng như tổ chức.",
+                name = R.string.award_top_project_name,
+                description = R.string.award_top_project_desc,
+                longDescription = R.string.award_top_project_long,
                 quantity = 5,
-                quantityUnit = "Dự án",
-                prizeValue = "20.000.000 VNĐ",
+                quantityUnit = R.string.award_unit_project,
+                prizeValue = R.string.award_prize_project,
             ),
             Award(
                 id = "top_leader",
-                name = "Top Project Leader",
-                description = "Vinh danh những người dẫn dắt dự án xuất sắc và truyền cảm hứng cho đồng đội.",
-                longDescription = "Vinh danh những người dẫn dắt dự án xuất sắc – những leader truyền cảm hứng, " +
-                    "định hướng rõ ràng và đưa đội ngũ vượt qua thử thách để đạt kết quả ấn tượng.",
+                name = R.string.award_top_leader_name,
+                description = R.string.award_top_leader_desc,
+                longDescription = R.string.award_top_leader_long,
                 quantity = 3,
-                quantityUnit = "Cá nhân",
-                prizeValue = "10.000.000 VNĐ",
+                quantityUnit = R.string.award_unit_individual,
+                prizeValue = R.string.award_prize_leader,
             ),
         )
     }

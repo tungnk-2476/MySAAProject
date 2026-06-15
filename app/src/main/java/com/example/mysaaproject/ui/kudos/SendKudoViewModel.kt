@@ -1,5 +1,6 @@
 package com.example.mysaaproject.ui.kudos
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import com.example.mysaaproject.data.kudos.KudosRepository
 import com.example.mysaaproject.data.kudos.Recipient
@@ -13,7 +14,7 @@ data class SendKudoUiState(
     val recipientQuery: String = "",
     val selectedRecipient: Recipient? = null,
     val recipientResults: List<Recipient> = emptyList(),
-    val title: String? = null,
+    @param:StringRes val title: Int? = null,
     val message: String = "",
     val selectedHashtags: List<String> = emptyList(),
     val imageCount: Int = 0,
@@ -56,7 +57,7 @@ class SendKudoViewModel : ViewModel() {
         )
     }
 
-    fun onSelectTitle(title: String) = _uiState.update { it.copy(title = title, titleError = false) }
+    fun onSelectTitle(@StringRes title: Int) = _uiState.update { it.copy(title = title, titleError = false) }
 
     fun onMessageChange(message: String) = _uiState.update { it.copy(message = message) }
 
@@ -77,7 +78,7 @@ class SendKudoViewModel : ViewModel() {
         var valid = false
         _uiState.update { s ->
             val recipientError = s.selectedRecipient == null
-            val titleError = s.title.isNullOrBlank()
+            val titleError = s.title == null
             val hashtagError = s.selectedHashtags.isEmpty()
             val nicknameError = s.anonymous && s.nickname.isBlank()
             valid = !recipientError && !titleError && !hashtagError && !nicknameError

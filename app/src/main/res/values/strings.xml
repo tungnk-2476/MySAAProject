@@ -18,7 +18,7 @@
     <string name="home_countdown_hours">HOURS</string>
     <string name="home_countdown_minutes">MINUTES</string>
     <string name="home_event_time_label">Time:</string>
-    <string name="home_event_date">26/12/2025</string>
+    <string name="home_event_date">15/12/2026</string>
     <string name="home_event_venue_label">Venue:</string>
     <string name="home_event_venue">Âu Cơ Art Center</string>
     <string name="home_event_livestream">Live broadcast on Group Facebook Sun* Family</string>
@@ -125,4 +125,50 @@
     <string name="kudos_copy_link">Copy Link</string>
     <string name="kudos_view_detail">View details</string>
     <string name="kudos_view_all">View all Kudos</string>
+
+    <!-- Profile screen -->
+    <string name="profile_icon_collection">My icon collection</string>
+    <string name="profile_kudos_title">KUDOS</string>
+    <string name="profile_filter_received">Received</string>
+    <string name="profile_filter_sent">Sent</string>
+    <string name="profile_received_count">Received %1$d kudos</string>
+    <string name="profile_thank_you">Send thanks and recognition to %1$s</string>
+
+    <!-- Awards (mock content) -->
+    <string name="award_top_talent_name">Top Talent</string>
+    <string name="award_top_talent_desc">The Top Talent award honors individuals who excel in every aspect.</string>
+    <string name="award_top_talent_long">The Top Talent award honors all-round outstanding individuals — those who continually prove solid expertise and exceptional performance, always delivering value beyond expectations and highly regarded by clients and teammates. Ready to take on any task the organization entrusts to them, they are a source of inspiration, driving motivation and creating a positive impact on the whole team.</string>
+    <string name="award_top_project_name">Top Project</string>
+    <string name="award_top_project_desc">The Top Project award honors the year\'s most outstanding project teams.</string>
+    <string name="award_top_project_long">The Top Project award honors the year\'s most outstanding project teams — groups that build quality products, collaborate effectively, and deliver exceptional value to both clients and the organization.</string>
+    <string name="award_top_leader_name">Top Project Leader</string>
+    <string name="award_top_leader_desc">Honors outstanding project leaders who inspire their teammates.</string>
+    <string name="award_top_leader_long">Honors outstanding project leaders — inspiring leaders who set a clear direction and guide their teams through challenges to impressive results.</string>
+    <string name="award_unit_individual">Individuals</string>
+    <string name="award_unit_project">Projects</string>
+    <string name="award_prize_talent">7,000,000 VND</string>
+    <string name="award_prize_project">20,000,000 VND</string>
+    <string name="award_prize_leader">10,000,000 VND</string>
+
+    <!-- Notifications (mock content) -->
+    <string name="notif_msg_kudos_received">Sunner Huỳnh Dương Xuân Nhật just sent you a heartfelt note of recognition!</string>
+    <string name="notif_msg_heart_received">Wow! Your note to Sunner &lt;Sunner name&gt; just received more hearts!</string>
+    <string name="notif_msg_secret_box">Congratulations! You just earned a new Secret Box opening! Tap here to open it now!</string>
+    <string name="notif_msg_level_up">You received &lt;X&gt; notes from colleagues and leveled up to &lt;level name&gt;! Keep spreading positive energy to your teammates!</string>
+    <string name="notif_msg_content_hidden">Too bad! One of your notes was temporarily hidden for not meeting some standards! Review the standards and resend it to your teammate!</string>
+    <string name="notif_msg_badge_collected">Congratulations on collecting all 6 SAA badges. You have received a gift from the organizers: &lt;X&gt;. The organizers will contact you to deliver it at the end of the event.</string>
+    <string name="notif_msg_review_request">\"There are &lt;x&gt; notes that need your review!\" A note was just flagged by the system as a possible standards violation. Please review and confirm its status: Valid / Hidden / Reject.</string>
+    <string name="notif_time_15min">15 minutes ago</string>
+    <string name="notif_time_1hour">1 hour ago</string>
+    <string name="notif_time_1day">1 day ago</string>
+    <string name="notif_time_1month">1 month ago</string>
+
+    <!-- Kudos (mock content) -->
+    <string name="kudo_sample_content">Thank you to someone ordinary yet extraordinary :D Thank you for your diligence and dedication, which has been a huge motivation for the whole team all this time. Keep up this spirit!</string>
+    <string name="kudo_gift_received">Received 1 SAA T-shirt</string>
+    <string name="kudo_title_my_hero">MY HERO</string>
+    <string name="kudo_title_youth_idol">YOUTH IDOL</string>
+    <string name="kudo_title_silent_idol">SILENT IDOL</string>
+    <string name="kudo_title_brave_warrior">BRAVE WARRIOR</string>
+    <string name="kudo_title_star_of_hope">STAR OF HOPE</string>
 </resources>

@@ -25,7 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import com.example.mysaaproject.ui.locale.appString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,7 +39,7 @@ import com.example.mysaaproject.ui.theme.SaaOnDark
 
 /** Danh hiệu (award title) picker: a read-only field that opens a dark single-select dropdown. */
 @Composable
-fun TitleSelector(selected: String?, options: List<String>, isError: Boolean, onSelect: (String) -> Unit) {
+fun TitleSelector(selected: Int?, options: List<Int>, isError: Boolean, onSelect: (Int) -> Unit) {
     var expanded by remember { mutableStateOf(false) }
     Box {
         Row(
@@ -53,7 +53,7 @@ fun TitleSelector(selected: String?, options: List<String>, isError: Boolean, on
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = selected ?: stringResource(R.string.send_kudo_award_hint),
+                text = if (selected != null) appString(selected) else appString(R.string.send_kudo_award_hint),
                 color = if (selected == null) SendInkMuted else SendInk,
                 fontFamily = Montserrat,
                 fontSize = 14.sp,
@@ -72,7 +72,7 @@ fun TitleSelector(selected: String?, options: List<String>, isError: Boolean, on
                 DropdownMenuItem(
                     text = {
                         Text(
-                            option,
+                            appString(option),
                             color = SaaOnDark,
                             fontFamily = Montserrat,
                             fontWeight = if (option == selected) FontWeight.Bold else FontWeight.Normal,
@@ -101,12 +101,12 @@ fun MessageField(value: String, onValueChange: (String) -> Unit) {
         FormTextField(
             value = value,
             onValueChange = onValueChange,
-            placeholder = stringResource(R.string.send_kudo_message_hint),
+            placeholder = appString(R.string.send_kudo_message_hint),
             singleLine = false,
             minLines = 4,
         )
         Text(
-            stringResource(R.string.send_kudo_message_helper),
+            appString(R.string.send_kudo_message_helper),
             color = SendInkMuted,
             fontFamily = Montserrat,
             fontSize = 11.sp,
@@ -147,7 +147,7 @@ fun ImageStrip(count: Int, onAdd: () -> Unit, onRemove: () -> Unit) {
             }
         }
         if (count < SendKudoViewModel.MAX_IMAGES) {
-            AddPillButton(stringResource(R.string.send_kudo_add_image), stringResource(R.string.send_kudo_max5), onAdd)
+            AddPillButton(appString(R.string.send_kudo_add_image), appString(R.string.send_kudo_max5), onAdd)
         }
     }
 }
@@ -176,13 +176,13 @@ fun AnonymousField(
         ) {
             if (anonymous) Text("✓", color = SaaOnButton, fontSize = 14.sp, fontWeight = FontWeight.Bold)
         }
-        Text(stringResource(R.string.send_kudo_anonymous), color = SendInk, fontFamily = Montserrat, fontSize = 13.sp)
+        Text(appString(R.string.send_kudo_anonymous), color = SendInk, fontFamily = Montserrat, fontSize = 13.sp)
     }
-    FieldLabel(stringResource(R.string.send_kudo_nickname_label), required = anonymous)
+    FieldLabel(appString(R.string.send_kudo_nickname_label), required = anonymous)
     FormTextField(
         value = nickname,
         onValueChange = onNicknameChange,
-        placeholder = stringResource(R.string.send_kudo_nickname_hint),
+        placeholder = appString(R.string.send_kudo_nickname_hint),
         isError = nicknameError,
     )
 }
@@ -191,7 +191,7 @@ fun AnonymousField(
 @Composable
 fun ActionButtons(onCancel: () -> Unit, onSend: () -> Unit) {
     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-        ActionButton(stringResource(R.string.send_kudo_cancel), "✕", SaaOnButton, SaaOnDark, Modifier.weight(1f), onCancel)
-        ActionButton(stringResource(R.string.send_kudo_send), "➤", SaaButton, SaaOnButton, Modifier.weight(1f), onSend)
+        ActionButton(appString(R.string.send_kudo_cancel), "✕", SaaOnButton, SaaOnDark, Modifier.weight(1f), onCancel)
+        ActionButton(appString(R.string.send_kudo_send), "➤", SaaButton, SaaOnButton, Modifier.weight(1f), onSend)
     }
 }

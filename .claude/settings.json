@@ -62,7 +62,20 @@
       "Bash(./gradlew testDebugUnitTest installDebug --console=plain)",
       "Bash(./gradlew compileDebugKotlin testDebugUnitTest installDebug --console=plain)",
       "Bash(./gradlew testDebugUnitTest --console=plain)",
-      "Bash(xargs ls -la)"
+      "Bash(xargs ls -la)",
+      "Bash(git -C /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject remote -v)",
+      "Bash(gh auth *)",
+      "Bash(gh pr *)",
+      "Bash(JBR=\"/Applications/Android Studio.app/Contents/jbr/Contents/Home\"; ls \"$JBR/bin/java\" 2>/dev/null && echo \"JBR found\" || echo \"JBR missing\"; echo \"=== sdk.dir ===\" && grep sdk.dir local.properties 2>/dev/null)",
+      "Read(//Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/**)",
+      "Bash(sed -n '1,60p' app/src/test/java/com/example/mysaaproject/HomeCountdownTest.kt)",
+      "Bash(git mv *)",
+      "Bash(xargs cat)",
+      "Bash(grep -n \"import.*appString\\\\|import com.example.mysaaproject.R$\\\\|^import\" app/src/main/java/com/example/mysaaproject/ui/kudos/GiftRecipientsList.kt)",
+      "Bash(grep -iE \"appString|\\\\.R$\")",
+      "Bash(grep -rn '\"[A-Za-z][A-Za-z ]\\\\{5,\\\\}\"' /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/app/src/main/java/com/example/mysaaproject/ui/ --include=\"*.kt\")",
+      "Bash(grep -rn '\"[A-Z][A-Za-z ]\\\\{4,\\\\}\"' /Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/app/src/main/java/com/example/mysaaproject/ui/ --include=\"*.kt\")",
+      "Bash(perl -0pi -e 's{    import androidx\\\\.compose\\\\.ui\\\\.res\\\\.stringResource\\\\n}{}; s{import androidx\\\\.compose\\\\.ui\\\\.res\\\\.stringResource\\\\n}{}' app/src/main/java/com/example/mysaaproject/ui/awards/AwardSections.kt app/src/main/java/com/example/mysaaproject/ui/kudos/SendKudoScreen.kt)"
     ],
     "additionalDirectories": [
       "/Users/nguyen.khac.tung/AndroidStudioProjects/MySAAProject/plans",

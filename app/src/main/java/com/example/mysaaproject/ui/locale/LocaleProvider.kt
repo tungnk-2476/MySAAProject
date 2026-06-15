@@ -40,6 +40,11 @@ fun ProvideAppLanguage(language: AppLanguage, content: @Composable () -> Unit) {
 @Composable
 fun appString(resId: Int): String = LocalLocalizedContext.current.getString(resId)
 
+/** Localized format-string lookup ("…%1$s…") that recomposes when the app language changes. */
+@Composable
+fun appString(resId: Int, vararg formatArgs: Any): String =
+    LocalLocalizedContext.current.getString(resId, *formatArgs)
+
 /** Localized string-array lookup that recomposes when the app language changes. */
 @Composable
 fun appStringArray(resId: Int): List<String> =

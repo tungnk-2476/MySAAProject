@@ -1,14 +1,17 @@
 package com.example.mysaaproject.data.notifications
 
+import androidx.annotation.StringRes
+
 /**
- * A single notification shown on the Notifications screen. [message] and [relativeTime] are mock
- * content from the MoMorph design. [type] selects the icon + tint in the UI layer (kept pure here).
+ * A single notification shown on the Notifications screen. [message] and [relativeTime] are held as
+ * string-resource ids (mock content from the MoMorph design, resolved via `appString` at render so
+ * they switch with the app language). [type] selects the icon + tint in the UI layer (kept pure here).
  */
 data class NotificationItem(
     val id: String,
     val type: NotificationType,
-    val message: String,
-    val relativeTime: String,
+    @param:StringRes val message: Int,
+    @param:StringRes val relativeTime: Int,
     val isRead: Boolean = false,
 )
 

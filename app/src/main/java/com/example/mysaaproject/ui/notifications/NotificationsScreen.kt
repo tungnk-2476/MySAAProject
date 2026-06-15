@@ -145,8 +145,8 @@ private fun MarkAllReadAction(onClick: () -> Unit) {
 @Composable
 private fun NotificationsScreenPreview() {
     val sample = listOf(
-        NotificationItem("p1", NotificationType.KUDOS_RECEIVED, "Sunner vừa gửi đến bạn lời ghi nhận đầy yêu thương!", "15 phút trước", isRead = false),
-        NotificationItem("p2", NotificationType.CONTENT_HIDDEN, "Tiếc quá! Một lời nhắn bị tạm ẩn vì vướng một số tiêu chuẩn!", "1 tháng trước", isRead = true),
+        NotificationItem("p1", NotificationType.KUDOS_RECEIVED, R.string.notif_msg_kudos_received, R.string.notif_time_15min, isRead = false),
+        NotificationItem("p2", NotificationType.CONTENT_HIDDEN, R.string.notif_msg_content_hidden, R.string.notif_time_1month, isRead = true),
     )
     ProvideAppLanguage(language = AppLanguage.VN) {
         NotificationsScreen(

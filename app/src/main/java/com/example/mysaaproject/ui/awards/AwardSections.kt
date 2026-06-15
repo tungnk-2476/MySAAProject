@@ -19,7 +19,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -38,11 +37,13 @@ import com.example.mysaaproject.ui.theme.SaaOnDark
 fun AwardHighlightBlock(awards: List<Award>, selected: Award, onSelect: (Award) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         SectionHeader(eyebrow = appString(R.string.kudos_eyebrow), title = appString(R.string.award_system_title))
+        val options = awards.map { appString(it.name) }
+        val selectedLabel = appString(selected.name)
         FilterDropdown(
-            defaultLabel = selected.name,
-            options = awards.map { it.name },
-            selected = selected.name,
-            onSelect = { name -> awards.firstOrNull { it.name == name }?.let(onSelect) },
+            defaultLabel = selectedLabel,
+            options = options,
+            selected = selectedLabel,
+            onSelect = { label -> awards.getOrNull(options.indexOf(label))?.let(onSelect) },
         )
     }
 }
@@ -51,16 +52,18 @@ fun AwardHighlightBlock(awards: List<Award>, selected: Award, onSelect: (Award) 
 @Composable
 fun AwardInfoBlock(award: Award) {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        AwardBadge(award.name)
+        AwardBadge(appString(award.name))
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Icon(painterResource(R.drawable.ic_award), null, tint = SaaButton, modifier = Modifier.size(20.dp))
-            Text(award.name, color = SaaButton, fontFamily = Montserrat, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text(appString(award.name), color = SaaButton, fontFamily = Montserrat, fontWeight = FontWeight.Bold, fontSize = 18.sp)
         }
-        Text(award.longDescription, color = SaaOnDark, fontFamily = Montserrat, fontSize = 14.sp, lineHeight = 21.sp)
+        Text(appString(award.longDescription), color = SaaOnDark, fontFamily = Montserrat, fontSize = 14.sp, lineHeight = 21.sp)
         HorizontalDivider(color = SaaOnDark.copy(alpha = 0.12f))
-        StatRow(R.drawable.ic_diamond, appString(R.string.award_quantity_label), award.quantity.toString(), award.quantityUnit, valueGold = false)
+        val unit = if (award.quantityUnit != 0) appString(award.quantityUnit) else ""
+        val prize = if (award.prizeValue != 0) appString(award.prizeValue) else ""
+        StatRow(R.drawable.ic_diamond, appString(R.string.award_quantity_label), award.quantity.toString(), unit, valueGold = false)
         HorizontalDivider(color = SaaOnDark.copy(alpha = 0.12f))
-        StatRow(R.drawable.ic_award, appString(R.string.award_value_label), award.prizeValue, appString(R.string.award_value_each), valueGold = true)
+        StatRow(R.drawable.ic_award, appString(R.string.award_value_label), prize, appString(R.string.award_value_each), valueGold = true)
     }
 }
 

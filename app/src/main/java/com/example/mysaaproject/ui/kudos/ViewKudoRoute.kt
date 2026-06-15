@@ -16,6 +16,7 @@ fun ViewKudoRoute(
     onKudosTab: () -> Unit,
     onAwardsTab: () -> Unit,
     onProfileTab: () -> Unit,
+    onOpenProfile: (String, String) -> Unit,
     viewModel: ViewKudoViewModel = viewModel(),
 ) {
     val kudo by viewModel.kudo.collectAsStateWithLifecycle()
@@ -25,8 +26,8 @@ fun ViewKudoRoute(
         onBack = onBack,
         onLike = { viewModel.toggleLike() },
         onCopyLink = { /* TODO: copy link + toast */ },
-        onSender = { /* TODO: navigate to sender profile */ },
-        onReceiver = { /* TODO: navigate to receiver profile */ },
+        onSender = { kudo?.let { onOpenProfile(it.senderName, it.senderCode) } },
+        onReceiver = { kudo?.let { onOpenProfile(it.receiverName, it.receiverCode) } },
         onSaaTab = onSaaTab,
         onKudosTab = onKudosTab,
         onAwardsTab = onAwardsTab,

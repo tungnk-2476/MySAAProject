@@ -60,7 +60,7 @@ fun NotificationRow(
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             Text(
-                text = item.message,
+                text = appString(item.message),
                 color = if (item.isRead) SaaOnDark.copy(alpha = 0.75f) else SaaOnDark,
                 fontFamily = Montserrat,
                 fontWeight = if (item.isRead) FontWeight.Normal else FontWeight.Bold,
@@ -92,7 +92,7 @@ fun NotificationRow(
             }
 
             Text(
-                text = item.relativeTime,
+                text = appString(item.relativeTime),
                 color = SaaOnDark.copy(alpha = 0.5f),
                 fontFamily = Montserrat,
                 fontWeight = FontWeight.Normal,

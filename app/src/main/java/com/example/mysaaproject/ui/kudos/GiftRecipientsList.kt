@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mysaaproject.data.kudos.GiftRecipient
+import com.example.mysaaproject.ui.locale.appString
 import com.example.mysaaproject.ui.theme.Montserrat
 import com.example.mysaaproject.ui.theme.SaaBorderMuted
 import com.example.mysaaproject.ui.theme.SaaButton
@@ -58,7 +59,7 @@ fun GiftRecipientsList(
                 Avatar(recipient.name, size = 40.dp)
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(recipient.name, color = SaaButton, fontFamily = Montserrat, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-                    Text(recipient.message, color = SaaOnDark, fontFamily = Montserrat, fontSize = 12.sp)
+                    Text(appString(recipient.message), color = SaaOnDark, fontFamily = Montserrat, fontSize = 12.sp)
                 }
             }
         }

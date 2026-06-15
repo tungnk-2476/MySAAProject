@@ -6,9 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,7 +16,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mysaaproject.R
@@ -56,7 +53,7 @@ fun CountdownTimer(countdown: Countdown, modifier: Modifier = Modifier) {
 private fun CountdownUnit(value: Int, label: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            "%02d".format(value).forEach { digit -> DigitBox(digit) }
+            "%02d".format(value).forEach { digit -> DigitBox(digit.digitToInt()) }
         }
         Text(
             text = label,
@@ -70,7 +67,7 @@ private fun CountdownUnit(value: Int, label: String) {
 }
 
 @Composable
-private fun DigitBox(digit: Char) {
+private fun DigitBox(digit: Int) {
     Box(modifier = Modifier.size(width = 32.dp, height = 56.dp), contentAlignment = Alignment.Center) {
         Box(
             modifier = Modifier
@@ -83,13 +80,11 @@ private fun DigitBox(digit: Char) {
                 )
                 .border(0.5.dp, SaaButton.copy(alpha = 0.5f), RoundedCornerShape(8.dp)),
         )
-        Text(
-            text = digit.toString(),
-            color = SaaOnDark,
-            fontFamily = Montserrat,
-            fontWeight = FontWeight.Medium,
-            fontSize = 32.sp,
-            textAlign = TextAlign.Center,
+        // LED 7-segment digit, matching the MoMorph countdown design.
+        SevenSegmentDigit(
+            digit = digit,
+            litColor = SaaOnDark,
+            modifier = Modifier.size(width = 18.dp, height = 34.dp),
         )
     }
 }

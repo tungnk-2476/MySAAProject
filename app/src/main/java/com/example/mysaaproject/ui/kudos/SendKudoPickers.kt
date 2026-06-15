@@ -26,7 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import com.example.mysaaproject.ui.locale.appString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -51,7 +51,7 @@ fun RecipientField(
         FormTextField(
             value = query,
             onValueChange = onQueryChange,
-            placeholder = stringResource(R.string.send_kudo_recipient_hint),
+            placeholder = appString(R.string.send_kudo_recipient_hint),
             isError = isError,
             trailingIcon = {
                 Icon(painterResource(R.drawable.ic_arrow_down), null, tint = SendInkMuted, modifier = Modifier.size(20.dp))
@@ -100,8 +100,8 @@ fun HashtagField(
         selected.forEach { tag -> HashtagChip(tag, onRemove = { onToggle(tag) }) }
         Box {
             AddPillButton(
-                label = stringResource(R.string.send_kudo_add_hashtag),
-                suffix = stringResource(R.string.send_kudo_max5),
+                label = appString(R.string.send_kudo_add_hashtag),
+                suffix = appString(R.string.send_kudo_max5),
                 onClick = { expanded = true },
             )
             DropdownMenu(

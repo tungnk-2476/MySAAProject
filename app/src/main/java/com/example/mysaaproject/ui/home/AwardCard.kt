@@ -60,7 +60,7 @@ fun AwardCard(
             contentAlignment = Alignment.Center,
         ) {
             Text(
-                text = award.name.uppercase(),
+                text = appString(award.name).uppercase(),
                 color = SaaButton,
                 fontFamily = Montserrat,
                 fontWeight = FontWeight.Medium,
@@ -72,14 +72,14 @@ fun AwardCard(
 
         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Text(
-                text = award.name,
+                text = appString(award.name),
                 color = SaaOnDark,
                 fontFamily = Montserrat,
                 fontWeight = FontWeight.Medium,
                 fontSize = 16.sp,
             )
             Text(
-                text = award.description,
+                text = appString(award.description),
                 color = SaaOnDark.copy(alpha = 0.8f),
                 fontFamily = Montserrat,
                 fontWeight = FontWeight.Light,
