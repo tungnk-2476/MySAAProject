@@ -82,7 +82,7 @@ fun AwardCard(
                 text = appString(award.description),
                 color = SaaOnDark.copy(alpha = 0.8f),
                 fontFamily = Montserrat,
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.Normal,
                 fontSize = 12.sp,
                 lineHeight = 16.sp,
                 maxLines = 3,

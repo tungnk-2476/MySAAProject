@@ -80,7 +80,7 @@ fun HomeScreen(
                         text = appString(R.string.home_theme_paragraph),
                         color = SaaOnDark,
                         fontFamily = Montserrat,
-                        fontWeight = FontWeight.Light,
+                        fontWeight = FontWeight.Normal,
                         fontSize = 14.sp,
                         lineHeight = 22.sp,
                         modifier = Modifier.padding(horizontal = CONTENT_INSET),

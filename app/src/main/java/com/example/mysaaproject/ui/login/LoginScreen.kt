@@ -96,7 +96,7 @@ fun LoginScreen(
                 text = appString(R.string.login_description),
                 color = Color.White,
                 fontFamily = Montserrat,
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.Normal,
                 fontSize = 14.sp,
                 lineHeight = 20.sp,
             )

@@ -26,7 +26,8 @@ val Typography = Typography(
     ),
     bodyMedium = TextStyle(
         fontFamily = Montserrat,
-        fontWeight = FontWeight.Light,
+        // Normal (400) instead of Light (300): thin white glyphs render blurry on the dark SAA background.
+        fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
         lineHeight = 20.sp,
         letterSpacing = 0.25.sp

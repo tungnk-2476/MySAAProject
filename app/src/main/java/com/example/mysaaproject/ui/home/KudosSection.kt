@@ -53,7 +53,7 @@ fun KudosSection(
                 text = appString(R.string.home_kudos_description),
                 color = SaaOnDark,
                 fontFamily = Montserrat,
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.Normal,
                 fontSize = 14.sp,
                 lineHeight = 20.sp,
             )

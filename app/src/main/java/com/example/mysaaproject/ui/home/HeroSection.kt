@@ -75,7 +75,7 @@ private fun InfoLine(label: String, value: String) {
             text = label,
             color = SaaOnDark,
             fontFamily = Montserrat,
-            fontWeight = FontWeight.Light,
+            fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
         )
         Text(
