@@ -22,6 +22,7 @@ fun HomeRoute(
     onOpenKudos: () -> Unit,
     onOpenAwards: () -> Unit,
     onOpenProfile: () -> Unit,
+    onOpenSendKudo: () -> Unit,
     viewModel: HomeViewModel = viewModel(),
 ) {
     val countdown by viewModel.countdown.collectAsStateWithLifecycle()
@@ -42,8 +43,8 @@ fun HomeRoute(
         onAwardDetails = { onOpenAwards() },
         onRetryAwards = viewModel::retryAwards,
         onKudosDetails = { /* TODO: navigate to Kudos detail */ },
-        onWriteKudos = { /* TODO: open WriteKudo form */ },
-        onKudosShortcut = { /* TODO: navigate to Kudos feed */ },
+        onWriteKudos = onOpenSendKudo,
+        onKudosShortcut = onOpenKudos,
         onAwardsTab = onOpenAwards,
         onKudosTab = onOpenKudos,
         onProfileTab = onOpenProfile,

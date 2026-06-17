@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mysaaproject.data.kudos.Kudo
 import com.example.mysaaproject.data.kudos.KudosRepository
+import com.example.mysaaproject.data.kudos.toggleLiked
 import com.example.mysaaproject.data.notifications.NotificationsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -24,8 +25,8 @@ class KudosViewModel : ViewModel() {
     /** Full (unfiltered) highlight list; likes mutate this base, filters derive [highlightKudos]. */
     private val _highlightKudos = MutableStateFlow(KudosRepository.highlightKudos)
 
-    private val _feedKudos = MutableStateFlow(KudosRepository.feedKudos)
-    val feedKudos: StateFlow<List<Kudo>> = _feedKudos.asStateFlow()
+    /** "All Kudos" section feed — backed by the shared repository so newly sent kudos appear here. */
+    val feedKudos: StateFlow<List<Kudo>> = KudosRepository.feed
 
     val stats = KudosRepository.stats
     val recipients = KudosRepository.recipients
@@ -56,10 +57,10 @@ class KudosViewModel : ViewModel() {
         .map { items -> items.count { !it.isRead } }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000L), 0)
 
-    /** Toggle like locally: flips [Kudo.liked] and adjusts the heart count by one. */
+    /** Toggle like: the highlight carousel is local; the feed is shared via [KudosRepository]. */
     fun toggleLike(id: String) {
         _highlightKudos.update { toggleLikeIn(it, id) }
-        _feedKudos.update { toggleLikeIn(it, id) }
+        KudosRepository.toggleLike(id)
     }
 
     /** Single-select department filter; selecting the active value again clears the filter. */
@@ -76,9 +77,8 @@ class KudosViewModel : ViewModel() {
         /** 1000 → "1.000" (dot thousands separator, matching the design). */
         fun formatHearts(value: Int): String = "%,d".format(value).replace(",", ".")
 
-        /** Flip `liked` and adjust hearts by one for a single kudo (pure — the one source of truth). */
-        fun applyLikeToggle(kudo: Kudo): Kudo =
-            kudo.copy(liked = !kudo.liked, hearts = kudo.hearts + if (kudo.liked) -1 else 1)
+        /** Flip `liked` and adjust hearts by one for a single kudo (delegates to the data-layer rule). */
+        fun applyLikeToggle(kudo: Kudo): Kudo = kudo.toggleLiked()
 
         /** Pure like-toggle over a kudo list (unit-testable): flips `liked` and ±1 heart for [id]. */
         fun toggleLikeIn(list: List<Kudo>, id: String): List<Kudo> =

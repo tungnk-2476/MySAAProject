@@ -2,8 +2,15 @@ package com.example.mysaaproject.ui.kudos
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
+import com.example.mysaaproject.R
+import com.example.mysaaproject.data.kudos.HeroLevel
+import com.example.mysaaproject.data.kudos.Kudo
 import com.example.mysaaproject.data.kudos.KudosRepository
 import com.example.mysaaproject.data.kudos.Recipient
+import com.example.mysaaproject.data.profile.ProfileRepository
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -73,6 +80,41 @@ class SendKudoViewModel : ViewModel() {
 
     fun onNicknameChange(nickname: String) = _uiState.update { it.copy(nickname = nickname, nicknameError = false) }
 
+    /**
+     * Validate the form and, on success, compose the kudo and prepend it to the shared feed so it
+     * appears at the top of the Kudos list. Returns whether the submit succeeded (the route navigates
+     * back only on success).
+     */
+    fun submit(): Boolean {
+        if (!validate()) return false
+        KudosRepository.addKudo(composeKudo(_uiState.value))
+        return true
+    }
+
+    /** Build a [Kudo] from the validated form state (sender = logged-in user, receiver = selection). */
+    private fun composeKudo(state: SendKudoUiState): Kudo {
+        val me = ProfileRepository.ownProfile
+        val recipient = requireNotNull(state.selectedRecipient)
+        val displaySender = if (state.anonymous) state.nickname else me.name
+        return Kudo(
+            id = "u${System.currentTimeMillis()}",
+            senderName = displaySender,
+            senderCode = if (state.anonymous) "" else me.code,
+            senderHero = me.hero,
+            receiverName = recipient.name,
+            receiverCode = recipient.unit,
+            receiverHero = HeroLevel.RISING,
+            time = TIME_FORMAT.format(Date()),
+            title = requireNotNull(state.title),
+            content = R.string.kudo_sample_content, // fallback; contentText is shown when present
+            contentText = state.message,
+            hashtags = state.selectedHashtags,
+            hearts = 0,
+            department = recipient.unit,
+            imageCount = state.imageCount,
+        )
+    }
+
     /** Validate required fields, set inline error flags, and return whether the form may be submitted. */
     fun validate(): Boolean {
         var valid = false
@@ -101,6 +143,9 @@ class SendKudoViewModel : ViewModel() {
     companion object {
         const val MAX_HASHTAGS = 5
         const val MAX_IMAGES = 5
+
+        /** Kudo timestamp format, matching the mock feed ("HH:mm - MM/dd/yyyy"). */
+        private val TIME_FORMAT = SimpleDateFormat("HH:mm - MM/dd/yyyy", Locale.US)
 
         /** Pure hashtag multi-select toggle: remove if present, add if under [max], else unchanged. */
         fun toggleHashtag(current: List<String>, tag: String, max: Int = MAX_HASHTAGS): List<String> = when {

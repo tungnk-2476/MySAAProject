@@ -104,6 +104,7 @@
     <string name="send_kudo_nickname_hint">Enter a nickname</string>
     <string name="send_kudo_cancel">Cancel</string>
     <string name="send_kudo_send">Send</string>
+    <string name="send_kudo_success">Kudo sent</string>
     <string name="search_sunner_hint">Search Sunner</string>
     <string name="search_recent">Recent</string>
     <string name="search_view_all">View all</string>

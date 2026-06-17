@@ -100,6 +100,9 @@ fun AppNavHost(
                         launchSingleTop = true
                     }
                 },
+                onOpenSendKudo = {
+                    navController.navigate(Routes.SEND_KUDO) { launchSingleTop = true }
+                },
             )
         }
         composable(Routes.AWARDS) {
@@ -238,6 +241,12 @@ fun AppNavHost(
         composable(Routes.SEND_KUDO) {
             SendKudoRoute(
                 onClose = { navController.popBackStack() },
+                onSent = {
+                    navController.navigate(Routes.KUDOS) {
+                        popUpTo(Routes.SEND_KUDO) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
                 onSaaTab = {
                     navController.navigate(Routes.HOME) {
                         popUpTo(Routes.HOME) { inclusive = true }

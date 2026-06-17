@@ -31,7 +31,15 @@ data class Kudo(
     val liked: Boolean = false,
     /** Number of attached images (rendered as placeholder tiles on the View Kudo detail screen). */
     val imageCount: Int = 0,
+    /**
+     * Free-text body for user-composed kudos. When set (non-blank) it is rendered instead of the
+     * localized [content] resource — mock/sample kudos leave this null and use [content].
+     */
+    val contentText: String? = null,
 )
+
+/** Single like rule (the one source of truth): flip [Kudo.liked] and adjust hearts by one. */
+fun Kudo.toggleLiked(): Kudo = copy(liked = !liked, hearts = hearts + if (liked) -1 else 1)
 
 /** Personal Kudos statistics block (All Kudos section). */
 data class KudosStats(

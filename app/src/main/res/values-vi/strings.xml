@@ -100,6 +100,7 @@
     <string name="send_kudo_nickname_hint">Nhập nickname</string>
     <string name="send_kudo_cancel">Huỷ</string>
     <string name="send_kudo_send">Gửi đi</string>
+    <string name="send_kudo_success">Đã gửi Kudo</string>
     <string name="search_sunner_hint">Search Sunner</string>
     <string name="search_recent">Recent</string>
     <string name="search_view_all">View all</string>

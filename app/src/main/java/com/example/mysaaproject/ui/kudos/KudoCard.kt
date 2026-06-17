@@ -89,7 +89,7 @@ fun KudoCard(
             modifier = if (centerTitle) Modifier.fillMaxWidth() else Modifier,
         )
         Text(
-            text = appString(kudo.content),
+            text = kudo.contentText?.takeIf { it.isNotBlank() } ?: appString(kudo.content),
             color = InkColor,
             fontFamily = Montserrat,
             fontSize = 12.sp,

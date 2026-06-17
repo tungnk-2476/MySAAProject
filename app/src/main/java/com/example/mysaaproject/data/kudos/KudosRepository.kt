@@ -1,6 +1,10 @@
 package com.example.mysaaproject.data.kudos
 
 import com.example.mysaaproject.R
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 /**
  * Stub Kudos data — no backend yet. Mock content extracted from the MoMorph "[iOS] Sun*Kudos"
@@ -18,12 +22,28 @@ object KudosRepository {
     val highlightKudos: List<Kudo> = List(5) { i -> sampleKudo("h$i", i) }
     val feedKudos: List<Kudo> = List(4) { i -> sampleKudo("f$i", i) }
 
-    /** Full Kudos feed shown on the dedicated "All Kudos" screen. */
+    /** Full Kudos feed shown on the dedicated "All Kudos" screen (initial mock seed). */
     val allKudos: List<Kudo> = List(8) { i -> sampleKudo("a$i", i) }
 
-    /** Look up a single kudo by id across every mock list (for the View Kudo detail screen). */
+    /**
+     * Shared, mutable Kudos feed — the single source of truth for the Kudos tab "All Kudos" section
+     * and the dedicated All Kudos screen. Seeded from [allKudos]; user-composed kudos are prepended
+     * via [addKudo] so they appear at the top of the list immediately.
+     */
+    private val _feed = MutableStateFlow(allKudos)
+    val feed: StateFlow<List<Kudo>> = _feed.asStateFlow()
+
+    /** Prepend a newly composed kudo so it shows first in the feed. */
+    fun addKudo(kudo: Kudo) = _feed.update { listOf(kudo) + it }
+
+    /** Toggle like on a feed kudo (shared across the Kudos tab and All Kudos screen). */
+    fun toggleLike(id: String) = _feed.update { list ->
+        list.map { if (it.id == id) it.toggleLiked() else it }
+    }
+
+    /** Look up a single kudo by id across every list (for the View Kudo detail screen). */
     fun findById(id: String): Kudo? =
-        (highlightKudos + feedKudos + allKudos).firstOrNull { it.id == id }
+        (highlightKudos + feedKudos + _feed.value).firstOrNull { it.id == id }
 
     // --- New Kudo (Send Kudo) form options ---
 
